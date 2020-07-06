@@ -1,0 +1,3305 @@
+SPECK:
+Diff 0x20 then for %run train_simon_diff.py 10 12 2 2 12 2 10 
+Epoch 1/10
+4096/4096 [==============================] - 0s 34us/step - loss: 0.2510 - acc: 0.5078 - val_loss: 0.4715 - val_acc: 0.4697
+Epoch 2/10
+4096/4096 [==============================] - 0s 8us/step - loss: 0.4502 - acc: 0.4929 - val_loss: 0.2748 - val_acc: 0.4697
+Epoch 3/10
+4096/4096 [==============================] - 0s 8us/step - loss: 0.2659 - acc: 0.4929 - val_loss: 0.2539 - val_acc: 0.5303
+Epoch 4/10
+4096/4096 [==============================] - 0s 8us/step - loss: 0.2567 - acc: 0.5071 - val_loss: 0.2518 - val_acc: 0.5303
+Epoch 5/10
+4096/4096 [==============================] - 0s 8us/step - loss: 0.2543 - acc: 0.5071 - val_loss: 0.2492 - val_acc: 0.5303
+Epoch 6/10
+4096/4096 [==============================] - 0s 8us/step - loss: 0.2502 - acc: 0.5071 - val_loss: 0.2493 - val_acc: 0.5312
+Epoch 7/10
+4096/4096 [==============================] - 0s 8us/step - loss: 0.2492 - acc: 0.5088 - val_loss: 0.2502 - val_acc: 0.4824
+Epoch 8/10
+4096/4096 [==============================] - 0s 8us/step - loss: 0.2494 - acc: 0.5410 - val_loss: 0.2506 - val_acc: 0.4678
+Epoch 9/10
+4096/4096 [==============================] - 0s 8us/step - loss: 0.2495 - acc: 0.5046 - val_loss: 0.2507 - val_acc: 0.4688
+Epoch 10/10
+4096/4096 [==============================] - 0s 8us/step - loss: 0.2494 - acc: 0.5054 - val_loss: 0.2506 - val_acc: 0.4619
+Best validation accuracy:  0.53125
+
+
+
+
+SIMON:
+
+%run test_trained_model.py simon ./simon_nets/best_8_depth_2_epoch-11_val_acc-0.54.h5 2 4 6 100
+
+Acc count around 45-50
+%run test_trained_model.py simon ./simon_nets/best_8_depth_2_epoch-11_val_acc-0.54.h5 2 6 8 100
+Acc count around 40-50
+
+%run train_distinguisher.py simon 0x0000 0x0020 10 8 2 2 16 2 14
+Best validation accuracy:  0.57855224609375
+
+%run test_trained_model.py simon ./simon_nets/best_8_depth_2_diff_\(0,\ 32\)_data_train_65536_data_test_16384_epoch-08_val_acc-0.58.h5 2 14 8 10 random
+
+16384/16384 [==============================] - 1s 48us/step
+Run 1 : acc: 57.75%
+16384/16384 [==============================] - 1s 48us/step
+Run 2 : acc: 56.75%
+16384/16384 [==============================] - 1s 49us/step
+Run 3 : acc: 57.59%
+16384/16384 [==============================] - 1s 49us/step
+Run 4 : acc: 57.84%
+16384/16384 [==============================] - 1s 48us/step
+Run 5 : acc: 57.37%
+16384/16384 [==============================] - 1s 49us/step
+Run 6 : acc: 57.71%
+16384/16384 [==============================] - 1s 50us/step
+Run 7 : acc: 57.14%
+16384/16384 [==============================] - 1s 51us/step
+Run 8 : acc: 57.28%
+16384/16384 [==============================] - 1s 49us/step
+Run 9 : acc: 58.02%
+16384/16384 [==============================] - 1s 48us/step
+Run 10 : acc: 57.30%
+Total Count for acc > .51 : 10
+
+%run test_trained_model.py simon ./simon_nets/best_8_depth_2_diff_\(0,\ 32\)_data_train_65536_data_test_16384_epoch-08_val_acc-0.58.h5 2 14 8 100 random
+
+All run accuracy > .52
+
+%run train_distinguisher.py simon 0x0000 0x0020 10 8 2 2 17 2 15
+Best validation accuracy:  0.580291748046875
+
+%run train_distinguisher.py simon 0x0000 0x0020 10 8 2 2 17 2 15
+Best validation accuracy:  0.57867431640625
+
+%run test_trained_model.py simon ./simon_nets/best_8_depth_2_diff_\(0,\ 32\)_data_train_131072_data_test_32768_epoch-03_val_acc-0.57.h5 2 15 8 10 no_random_default
+Total Count for acc > .51 : 10
+
+%run test_trained_model.py simon ./simon_nets/best_8_depth_2_diff_\(0,\ 32\)_data_train_131072_data_test_32768_epoch-03_val_acc-0.57.h5 2 9 8 10 random
+
+Minimum 2^9 for all acc > .51
+
+
+
+0x8 0x0
+Train on 235929 samples, validate on 26215 samples
+Epoch 1/5
+235929/235929 [==============================] - 3s 12us/step - loss: 0.0851 - acc: 0.9200 - val_loss: 0.1471 - val_acc: 0.9327
+Epoch 2/5
+235929/235929 [==============================] - 2s 7us/step - loss: 0.0286 - acc: 0.9958 - val_loss: 0.1266 - val_acc: 0.9295
+Epoch 3/5
+235929/235929 [==============================] - 2s 7us/step - loss: 0.0240 - acc: 0.9979 - val_loss: 0.1550 - val_acc: 0.7587
+Epoch 4/5
+235929/235929 [==============================] - 2s 7us/step - loss: 0.0211 - acc: 0.9988 - val_loss: 0.2027 - val_acc: 0.6135
+Epoch 5/5
+235929/235929 [==============================] - 2s 7us/step - loss: 0.0185 - acc: 0.9992 - val_loss: 0.2284 - val_acc: 0.5833
+Run  0 : 
+0xcd235408 0.523
+0xc5895488 0.533
+0xfd0ec4a4 0.543
+0x962d04b1 0.544
+0x922d04b1 0.546
+0x32186de2 0.555
+0x221049e2 0.572
+0x201049e2 0.581
+0x20851e0 0.591
+0x20811e0 0.62
+0x20811a0 0.634
+0x2088980 0.66
+0x88980 0.678
+0x10488180 0.704
+0x30488180 0.726
+0x20488180 0.792
+0x2048c180 0.801
+0x2040c180 0.848
+0x20408100 0.852
+0x2040c100 0.861
+0x2040c180 0.864
+0x2000c000 0.92
+0x2000c000 0.926
+0x20 0.997
+0x30 0.998
+0x820 0.999
+0x80810 1.0
+After optimizer- diff: 0x80810 Accuracy: 1.0
+
+Estimates of attack accuracy:
+3 rounds:1.0
+4 rounds:0.992
+5 rounds:0.719
+6 rounds:0.612
+Run  1 : 
+0x9c7d618c 0.518
+0x1c6d618c 0.535
+0x1c6d610c 0.548
+0xf9c7240c 0.551
+0x4900f858 0.552
+0x4900d078 0.554
+0x6910d879 0.581
+0x6910d079 0.611
+0x6810d079 0.626
+0x681464f9 0.632
+0x10207428 0.641
+0x10287428 0.647
+0x10286428 0.671
+0x10084420 0.702
+0x10084400 0.75
+0x2c00 0.753
+0x42c10 0.791
+0x43c10 0.792
+0x2040802 0.795
+0x12006430 0.802
+0x12006030 0.818
+0x12004c32 0.846
+0x10086012 0.855
+0x80820 0.961
+0x80830 0.969
+0x80810 0.994
+0x80000 0.996
+0x80010 0.997
+0x20 0.998
+0x830 1.0
+After optimizer- diff: 0x830 Accuracy: 1.0
+
+Estimates of attack accuracy:
+3 rounds:1.0
+4 rounds:0.994
+5 rounds:0.703
+6 rounds:0.553
+Run  2 : 
+0xf1162199 0.527
+0x38142219 0.532
+0x38142215 0.561
+0x1a303073 0.567
+0x4a203873 0.568
+0x5a086873 0.577
+0x5a006873 0.58
+0x5a002873 0.588
+0x52002971 0.599
+0x5000a160 0.607
+0xd000a160 0.616
+0xd000a060 0.623
+0xb000a062 0.641
+0xb000a022 0.667
+0x8008c022 0.706
+0x80084022 0.734
+0x80084020 0.735
+0x80004002 0.821
+0x4002 0.893
+0x2 0.908
+0x80800 0.994
+0x80810 0.995
+0x80800 0.996
+0x80800 1.0
+After optimizer- diff: 0x80800 Accuracy: 1.0
+
+Estimates of attack accuracy:
+3 rounds:1.0
+4 rounds:0.998
+5 rounds:0.744
+6 rounds:0.613
+7 rounds:0.53
+Run  3 : 
+0x5146caa6 0.487
+0x5046caa6 0.529
+0xdff1a207 0.533
+0x57f08205 0.546
+0x62128729 0.551
+0x6110d2b9 0.554
+0x6110d2a9 0.584
+0x601292a9 0.602
+0x6012920c 0.62
+0x40129308 0.632
+0x40129208 0.65
+0x40121208 0.665
+0x121208 0.721
+0x101208 0.728
+0x8101208 0.75
+0x101240 0.779
+0x101040 0.902
+0x101060 0.906
+0x40 0.96
+0x20 0.999
+0x820 1.0
+After optimizer- diff: 0x820 Accuracy: 1.0
+
+Estimates of attack accuracy:
+3 rounds:1.0
+4 rounds:0.999
+5 rounds:0.739
+6 rounds:0.651
+7 rounds:0.562
+Run  4 : 
+0xb63082ea 0.52
+0xb62080ea 0.527
+0xb26000e8 0.539
+0xa26000e8 0.579
+0xa26000e0 0.606
+0x32200542 0.62
+0x32200142 0.629
+0x3208e432 0.638
+0x3208c432 0.652
+0x2208c432 0.682
+0x2208cc32 0.695
+0x2084c32 0.752
+0x2084030 0.781
+0x2080030 0.812
+0x2080010 0.832
+0x2080412 0.843
+0x2080410 0.85
+0x80410 0.859
+0x80010 0.994
+0x80800 0.995
+0x80810 0.996
+0x20 0.997
+0x30 0.998
+0x820 1.0
+After optimizer- diff: 0x820 Accuracy: 1.0
+
+Estimates of attack accuracy:
+3 rounds:1.0
+4 rounds:0.993
+5 rounds:0.738
+6 rounds:0.625
+Run  5 : 
+0x7b97817b 0.519
+0x7b97c17b 0.535
+0x864b489c 0.538
+0x8649489c 0.578
+0x84490894 0.608
+0x84090890 0.61
+0x4090880 0.623
+0x40908a0 0.645
+0x4090820 0.766
+0x4090820 0.768
+0x10824 0.821
+0x10826 0.824
+0x810 0.965
+0x830 0.995
+0x830 0.996
+0x80010 0.997
+0x820 0.998
+0x30 0.999
+0x820 1.0
+After optimizer- diff: 0x820 Accuracy: 1.0
+
+Estimates of attack accuracy:
+3 rounds:1.0
+4 rounds:0.996
+5 rounds:0.726
+6 rounds:0.66
+Run  6 : 
+0xc104215d 0.533
+0xc504215d 0.534
+0xce14a37d 0.546
+0x6b31862 0.557
+0x6931862 0.593
+0x24029a58 0.65
+0x24029258 0.665
+0x20029058 0.668
+0x20009058 0.689
+0x30009048 0.709
+0x29208 0.737
+0x28208 0.803
+0x2820c 0.825
+0x2020c 0.867
+0x20004 0.87
+0x210 0.887
+0x200 0.944
+0x800 0.98
+0x80800 0.994
+0x80000 0.998
+0x20 0.999
+After optimizer- diff: 0x20 Accuracy: 0.999
+
+Estimates of attack accuracy:
+3 rounds:0.999
+4 rounds:0.992
+5 rounds:0.852
+6 rounds:0.699
+7 rounds:0.601
+8 rounds:0.552
+Run  7 : 
+0xe6f53fef 0.511
+0xe6f53f6f 0.516
+0xecfd377f 0.518
+0xe9fd377f 0.523
+0xe9eda65c 0.527
+0x6a870700 0.529
+0x6a870702 0.542
+0x354a343c 0.551
+0x1542343c 0.558
+0x601a3e 0.56
+0x401a3e 0.567
+0x401a1e 0.577
+0x441f1e 0.58
+0x41f1e 0.635
+0x40f1e 0.658
+0x40d1e 0.711
+0x60c092e 0.715
+0x60c092a 0.735
+0x400080a 0.802
+0x80a 0.844
+0x1c08 0.86
+0x2000c00 0.861
+0x1c08 0.865
+0x808 0.938
+0x8 0.95
+0x8 0.972
+0x820 0.993
+0x830 0.997
+0x830 0.998
+0x80800 0.999
+0x830 1.0
+After optimizer- diff: 0x830 Accuracy: 1.0
+
+Estimates of attack accuracy:
+3 rounds:1.0
+4 rounds:0.997
+5 rounds:0.721
+6 rounds:0.559
+Run  8 : 
+0xf117c8b0 0.513
+0xf017c8b0 0.518
+0xf017a130 0.519
+0xf007c934 0.529
+0xea17ee76 0.534
+0x7853ee4e 0.535
+0x4992f249 0.538
+0x4892f249 0.562
+0x48b2f249 0.584
+0x48b2f2c9 0.587
+0x48b2f2c8 0.604
+0x80488a33 0.61
+0x80088833 0.66
+0x80080833 0.75
+0x80080831 0.765
+0x80812 0.845
+0x80810 0.995
+0x80010 0.999
+0x20 1.0
+After optimizer- diff: 0x20 Accuracy: 1.0
+
+Estimates of attack accuracy:
+3 rounds:1.0
+4 rounds:0.993
+5 rounds:0.867
+6 rounds:0.73
+7 rounds:0.549
+8 rounds:0.545
+Run  9 : 
+0xba1d1727 0.524
+0x4effb78b 0.53
+0x446a67e0 0.546
+0x446243e1 0.554
+0x406043e1 0.595
+0x4060c3e1 0.607
+0x4040c3e1 0.621
+0x4040c3e0 0.69
+0x6000c3e0 0.694
+0x60004360 0.706
+0x60400100 0.708
+0x20400100 0.79
+0x20404180 0.8
+0x404180 0.908
+0x400180 0.91
+0x404180 0.915
+0x100 0.92
+0x200 0.95
+0x800 0.978
+0x80810 0.994
+0x820 0.996
+0x820 0.998
+0x80010 0.999
+0x830 1.0
+After optimizer- diff: 0x830 Accuracy: 1.0
+
+Estimates of attack accuracy:
+3 rounds:1.0
+4 rounds:0.999
+5 rounds:0.674
+6 rounds:0.559
+Run  10 : 
+0xf68a5859 0.515
+0x963a0a71 0.523
+0x963a0851 0.528
+0xb7ec2d51 0.538
+0x87642d50 0.549
+0x6ec2e14 0.565
+0x6ec2e10 0.578
+0x4093000b 0.584
+0x4083000b 0.632
+0x4081000b 0.651
+0x4001000b 0.658
+0x4001020b 0.673
+0x4001000b 0.692
+0x40010103 0.698
+0x40010103 0.702
+0x40000103 0.712
+0x40000143 0.716
+0x40000103 0.735
+0x40000001 0.869
+0x40000041 0.876
+0x1 0.92
+0x80 0.924
+0x40 0.954
+0x20 0.994
+0x830 0.996
+0x830 0.998
+After optimizer- diff: 0x830 Accuracy: 0.998
+
+Estimates of attack accuracy:
+3 rounds:0.998
+4 rounds:0.99
+5 rounds:0.696
+6 rounds:0.535
+Run  11 : 
+0x83b00215 0.512
+0x85b0c231 0.523
+0x85a8c031 0.535
+0x5a9c031 0.541
+0x32ffb0af 0.545
+0x3649bd16 0.579
+0x8448b946 0.606
+0x8440b944 0.612
+0x440f1c4 0.71
+0x4181850 0.768
+0x4181844 0.788
+0x4101874 0.791
+0x4101864 0.817
+0x101040 0.897
+0x100040 0.908
+0x20 0.996
+0x830 0.997
+0x80010 0.998
+0x80000 1.0
+After optimizer- diff: 0x80000 Accuracy: 1.0
+
+Estimates of attack accuracy:
+3 rounds:1.0
+4 rounds:0.99
+5 rounds:0.725
+6 rounds:0.586
+Run  12 : 
+0x2a31ac5e 0.541
+0x2a31ad5e 0.543
+0xe308cd6 0.55
+0x6300cd2 0.563
+0x6300c52 0.573
+0x6300042 0.579
+0x4300044 0.629
+0x4100044 0.798
+0x101840 0.81
+0x100840 0.83
+0x100070 0.836
+0x38 0.919
+0x28 0.934
+0x20 0.998
+0x820 0.999
+0x80810 1.0
+After optimizer- diff: 0x80810 Accuracy: 1.0
+
+Estimates of attack accuracy:
+3 rounds:1.0
+4 rounds:0.995
+5 rounds:0.752
+6 rounds:0.603
+7 rounds:0.527
+Run  13 : 
+0x43d5194d 0.484
+0x43dd194d 0.496
+0x43df194d 0.513
+0x43db1d4d 0.515
+0x41c11845 0.52
+0x5c51a01 0.522
+0x5c51a05 0.533
+0x54c1a05 0.536
+0x74c9a15 0.547
+0x70c9a15 0.559
+0x50c9e1f 0.561
+0x50c961f 0.572
+0x50c967f 0.58
+0x508967e 0.594
+0x40888b33 0.611
+0x40888b13 0.614
+0x80898315 0.622
+0x20090e20 0.626
+0x20010e20 0.628
+0x20010e24 0.671
+0x20810e24 0.673
+0x818602 0.711
+0x818103 0.726
+0x808143 0.747
+0x808103 0.787
+0x8103 0.795
+0x8102 0.807
+0x8302 0.82
+0x8302 0.84
+0x8002 0.845
+0x302 0.851
+0x202 0.86
+0x200 0.951
+0x8000 0.957
+0x4000 0.96
+0x4000 0.962
+0x4000 0.971
+0x20 0.998
+0x20 0.999
+0x20 1.0
+After optimizer- diff: 0x20 Accuracy: 1.0
+
+Estimates of attack accuracy:
+3 rounds:1.0
+4 rounds:0.996
+5 rounds:0.867
+6 rounds:0.71
+7 rounds:0.583
+8 rounds:0.525
+Run  14 : 
+0x9445029b 0.542
+0x9645039b 0.562
+0x47081d53 0.568
+0x46091553 0.59
+0x902a292e 0.598
+0x130086 0.6
+0x130006 0.617
+0x3000e 0.745
+0x1000e 0.78
+0x1100e 0.798
+0x100e 0.825
+0x100c 0.831
+0x400100c 0.85
+0x4081010 0.895
+0x34 0.901
+0x30 0.996
+0x830 0.997
+0x820 0.999
+After optimizer- diff: 0x820 Accuracy: 0.999
+
+Estimates of attack accuracy:
+3 rounds:0.999
+4 rounds:0.992
+5 rounds:0.765
+6 rounds:0.668
+Run  15 : 
+0x856c5e29 0.519
+0x856c1e29 0.531
+0xe8741e2b 0.539
+0x5423c1a 0.564
+0x1023e1a 0.569
+0x23e1a 0.593
+0x3e1a 0.613
+0x2003e1a 0.616
+0x2001e0a 0.732
+0x200180a 0.827
+0x200100a 0.836
+0x32 0.853
+0x80032 0.861
+0x822 0.887
+0x80820 0.967
+0x80020 0.974
+0x20 0.995
+0x20 0.996
+0x20 0.998
+0x830 0.999
+After optimizer- diff: 0x830 Accuracy: 0.999
+
+Estimates of attack accuracy:
+3 rounds:0.999
+4 rounds:0.994
+5 rounds:0.722
+6 rounds:0.526
+7 rounds:0.523
+Run  16 : 
+0xa58b1b4b 0.522
+0xa78b1b4b 0.534
+0xa78b9b4b 0.54
+0x3be21e3a 0.542
+0x327bd62c 0.544
+0x3612ccca 0.55
+0x9e416a20 0.553
+0x1e455e38 0.56
+0x1e455e28 0.592
+0x1e457628 0.597
+0x120d7638 0.6
+0x120c7418 0.667
+0x12047418 0.704
+0x12043418 0.712
+0x12043438 0.72
+0x12043430 0.734
+0x12043c30 0.736
+0x12043c38 0.748
+0x10001c30 0.758
+0x10003830 0.826
+0x4030 0.852
+0x4830 0.866
+0x2830 0.931
+0x30 0.997
+0x30 0.999
+After optimizer- diff: 0x30 Accuracy: 0.999
+
+Estimates of attack accuracy:
+3 rounds:0.999
+4 rounds:0.993
+5 rounds:0.739
+6 rounds:0.598
+Run  17 : 
+0x7e9d79b4 0.526
+0x26dc783e 0.552
+0x90256bc2 0.558
+0x25488e 0.579
+0x21488e 0.632
+0x2048ce 0.636
+0x2148c6 0.643
+0x2948c6 0.658
+0x122878f2 0.664
+0x12287cf2 0.68
+0x122010b2 0.69
+0x10044028 0.755
+0x1004402a 0.756
+0x1004602a 0.804
+0x42000 0.817
+0x8042400 0.824
+0x8002410 0.839
+0x410 0.9
+0x10 0.977
+0x80010 0.998
+0x20 0.999
+After optimizer- diff: 0x20 Accuracy: 0.999
+
+Estimates of attack accuracy:
+3 rounds:0.999
+4 rounds:0.998
+5 rounds:0.86
+6 rounds:0.718
+7 rounds:0.596
+Run  18 : 
+0xac508a6f 0.561
+0x3004241a 0.562
+0x1000305a 0.653
+0x12203452 0.655
+0x12201452 0.658
+0x12203452 0.671
+0x12001412 0.714
+0x1204141a 0.716
+0x12000002 0.757
+0x2000002 0.872
+0x800 0.982
+0x80800 0.997
+0x820 0.998
+0x80000 0.999
+After optimizer- diff: 0x80000 Accuracy: 0.999
+
+Estimates of attack accuracy:
+3 rounds:0.999
+4 rounds:0.992
+5 rounds:0.733
+6 rounds:0.592
+7 rounds:0.534
+Run  19 : 
+0xe9b386e7 0.511
+0xe9b184e7 0.524
+0xe9b305e7 0.533
+0xe1f315e7 0.536
+0xc3b135d4 0.539
+0x40b13560 0.554
+0x48b1376c 0.558
+0xee57f2c 0.57
+0x4e56626 0.585
+0x40838503 0.643
+0x4482860f 0.655
+0x4082860e 0.656
+0x4082860c 0.668
+0x40828248 0.702
+0x828240 0.716
+0x808240 0.791
+0x808200 0.885
+0x808200 0.887
+0x8200 0.894
+0x8000 0.947
+0x8000 0.95
+0x20 0.994
+0x820 0.997
+0x80010 0.998
+After optimizer- diff: 0x80010 Accuracy: 0.998
+
+Estimates of attack accuracy:
+3 rounds:0.998
+4 rounds:0.995
+5 rounds:0.73
+6 rounds:0.59
+7 rounds:0.528
+
+
+0x708d 0x7744
+Train on 235929 samples, validate on 26215 samples
+Epoch 1/5
+235929/235929 [==============================] - 3s 12us/step - loss: 0.2844 - acc: 0.5088 - val_loss: 0.2739 - val_acc: 0.5086
+Epoch 2/5
+235929/235929 [==============================] - 2s 7us/step - loss: 0.2707 - acc: 0.5474 - val_loss: 0.2722 - val_acc: 0.5134
+Epoch 3/5
+235929/235929 [==============================] - 2s 7us/step - loss: 0.2657 - acc: 0.5664 - val_loss: 0.2705 - val_acc: 0.5202
+Epoch 4/5
+235929/235929 [==============================] - 2s 7us/step - loss: 0.2619 - acc: 0.5772 - val_loss: 0.2689 - val_acc: 0.5258
+Epoch 5/5
+235929/235929 [==============================] - 2s 7us/step - loss: 0.2589 - acc: 0.5848 - val_loss: 0.2680 - val_acc: 0.5261
+Run  0 : 
+0x58c79573 0.52
+0x5de08d73 0.527
+0x54d4a456 0.528
+0x3cc4c666 0.532
+0x34c4c466 0.539
+0x36f0da4b 0.546
+0x41828345 0.557
+0x41808345 0.577
+0x1808341 0.585
+0x80c341 0.586
+0x80c301 0.626
+0xc0c201 0.65
+0x80c200 0.673
+After optimizer- diff: 0x80c200 Accuracy: 0.673
+
+Estimates of attack accuracy:
+3 rounds:0.673
+4 rounds:0.673
+5 rounds:0.592
+6 rounds:0.521
+Run  1 : 
+0xcd35d149 0.508
+0x8d355149 0.524
+0x8df55149 0.538
+0xcc5c64cd 0.541
+0x880aa2de 0.556
+0xb0104053 0.562
+0xb0004053 0.58
+0xb0000053 0.598
+0x204069f0 0.605
+After optimizer- diff: 0x204069f0 Accuracy: 0.605
+
+Estimates of attack accuracy:
+3 rounds:0.605
+4 rounds:0.602
+Run  2 : 
+0x2b62b165 0.525
+0x2a62b16d 0.533
+0x6e61b144 0.535
+0x7f71b944 0.539
+0xb096bb14 0.541
+0xa0c8b950 0.547
+0xe801a040 0.549
+0x702c9281 0.555
+0x26c5010e 0.562
+0x22c5011e 0.579
+0x2285011e 0.58
+0x2281011e 0.592
+0x228d011e 0.612
+0x48f091e 0.637
+0x48f011e 0.647
+0x20d0518 0.654
+0x40d001c 0.655
+0x209070a 0.66
+0x48a0c00 0.665
+0x4080c00 0.687
+0x4080c24 0.699
+0xa00 0.718
+After optimizer- diff: 0xa00 Accuracy: 0.718
+
+Estimates of attack accuracy:
+3 rounds:0.718
+4 rounds:0.728
+5 rounds:0.604
+6 rounds:0.549
+Run  3 : 
+0x89002603 0.573
+0x89002683 0.586
+0x81002403 0.62
+0x81002603 0.627
+0x81002602 0.655
+0x1001 0.692
+0x1 0.718
+0x80 0.755
+0x80 0.77
+0x40 0.778
+0x8000 0.784
+0x8000 0.79
+After optimizer- diff: 0x8000 Accuracy: 0.79
+
+Estimates of attack accuracy:
+3 rounds:0.79
+4 rounds:0.774
+5 rounds:0.657
+6 rounds:0.655
+Run  4 : 
+0x7d7ec62a 0.533
+0xfd7ec628 0.542
+0xe82ec78c 0.553
+0x90410010 0.562
+0x10410010 0.587
+0x10400010 0.626
+0x10400090 0.633
+0x400090 0.661
+0x400080 0.69
+0x404080 0.694
+0x4080 0.701
+0xc000 0.716
+0x8000 0.755
+0x20 0.786
+0x400 0.793
+After optimizer- diff: 0x400 Accuracy: 0.793
+
+Estimates of attack accuracy:
+3 rounds:0.793
+4 rounds:0.783
+5 rounds:0.663
+6 rounds:0.588
+7 rounds:0.547
+Run  5 : 
+0xfeaecf13 0.504
+0xfcaecf13 0.521
+0xbcaecf93 0.527
+0xb200fd1b 0.536
+0x9200fd1b 0.54
+0x82007d03 0.543
+0x82005d83 0.553
+0x82085da3 0.558
+0x86085da3 0.566
+0x6085d26 0.602
+0x4095006 0.627
+After optimizer- diff: 0x4095006 Accuracy: 0.627
+
+Estimates of attack accuracy:
+3 rounds:0.627
+4 rounds:0.607
+Run  6 : 
+0xfda3539b 0.507
+0xfda1539f 0.529
+0xfda9538f 0.536
+0x3e8dd2cb 0.537
+0x31901f31 0.539
+0x22031715 0.55
+0x22031705 0.56
+0x2203170d 0.575
+0x2203170c 0.576
+0x2003172c 0.579
+0x2203172c 0.581
+0x22031624 0.602
+0x22031620 0.607
+0x2031620 0.625
+0x20b1620 0.652
+0x48e023c 0.655
+0x2020212 0.659
+0x2020000 0.661
+0x20008 0.707
+0x20208 0.709
+0x402160c 0.71
+0x40c 0.749
+0x408 0.776
+0x408 0.792
+After optimizer- diff: 0x408 Accuracy: 0.792
+
+Estimates of attack accuracy:
+3 rounds:0.792
+4 rounds:0.754
+5 rounds:0.678
+6 rounds:0.568
+Run  7 : 
+0x4dccb7dd 0.539
+0x44c29248 0.542
+0x4442da08 0.545
+0x4402da28 0.556
+0x88042862 0.558
+After optimizer- diff: 0x88042862 Accuracy: 0.558
+
+Estimates of attack accuracy:
+3 rounds:0.558
+4 rounds:0.549
+Run  8 : 
+0x4bebdb15 0.513
+0x3ebdb15 0.52
+0x92e3db1d 0.546
+0x122a48b4 0.547
+0x12aa48b4 0.55
+0x4acb1627 0.552
+0x68bd006 0.569
+0x2838005 0.599
+0x2838001 0.602
+0x6818300 0.64
+0x6818700 0.66
+0x6808f0c 0.679
+0x808700 0.705
+0x800700 0.724
+After optimizer- diff: 0x800700 Accuracy: 0.724
+
+Estimates of attack accuracy:
+3 rounds:0.724
+4 rounds:0.7
+5 rounds:0.527
+6 rounds:0.54
+Run  9 : 
+0x7ebe6d93 0.512
+0x5ebe6d93 0.516
+0x5ebf6d92 0.527
+0x5b6b6972 0.533
+0xb3236b33 0.549
+0x902a2c3e 0.552
+0x802a2c3e 0.557
+0x82133f0 0.558
+0x1c109a34 0.585
+0x29630 0.629
+0x829630 0.646
+0x829720 0.657
+0x821b28 0.683
+0x21a28 0.688
+0x20208 0.69
+0x2020208 0.693
+0x20208 0.709
+0x20608 0.739
+0x2040c 0.742
+0x2060c 0.745
+0x408 0.758
+0x8 0.765
+0x408 0.768
+After optimizer- diff: 0x408 Accuracy: 0.768
+
+Estimates of attack accuracy:
+3 rounds:0.768
+4 rounds:0.748
+5 rounds:0.688
+6 rounds:0.557
+Run  10 : 
+0xf193ad49 0.507
+0xf0dbbdc9 0.513
+0xf0dbbd49 0.536
+0xfdfc4d4d 0.557
+0x604890f 0.558
+0x6858b0e 0.648
+0x4848f0e 0.65
+0x680870e 0.652
+0x600870e 0.654
+0x2008d22 0.67
+0x2008920 0.671
+After optimizer- diff: 0x2008920 Accuracy: 0.671
+
+Estimates of attack accuracy:
+3 rounds:0.671
+4 rounds:0.628
+5 rounds:0.531
+6 rounds:0.545
+Run  11 : 
+0x962bec03 0.505
+0x962fec03 0.513
+0x962fec01 0.522
+0x962dec01 0.524
+0x688ce01 0.561
+0x608ce09 0.567
+0x4014ae39 0.585
+0x4000a839 0.601
+After optimizer- diff: 0x4000a839 Accuracy: 0.601
+
+Estimates of attack accuracy:
+3 rounds:0.601
+4 rounds:0.545
+Run  12 : 
+0xc3348ae0 0.512
+0xc334bae0 0.513
+0xc334bae2 0.547
+0xf00cb832 0.55
+0x207c5 0.564
+0x203c5 0.57
+0x20385 0.589
+0x20285 0.61
+0x102020c 0.648
+0x102060c 0.663
+0x102060d 0.668
+0x2818d04 0.696
+0x2810904 0.702
+0x40008 0.739
+0x8 0.777
+0x20 0.782
+After optimizer- diff: 0x20 Accuracy: 0.782
+
+Estimates of attack accuracy:
+3 rounds:0.782
+4 rounds:0.79
+5 rounds:0.695
+6 rounds:0.678
+7 rounds:0.542
+8 rounds:0.547
+9 rounds:0.53
+Run  13 : 
+0xf067cdfb 0.488
+0xf067cdbb 0.505
+0xf065cdbb 0.508
+0xf0656dbb 0.525
+0xf0446dbb 0.528
+0xf0446dba 0.542
+0x4160e563 0.547
+0xbde5dbcc 0.555
+0x64c5a3e 0.558
+0x44c4e22 0.563
+0x64d4faa 0.566
+0x6450f8a 0.575
+After optimizer- diff: 0x6450f8a Accuracy: 0.575
+
+Estimates of attack accuracy:
+3 rounds:0.575
+4 rounds:0.573
+Run  14 : 
+0x66097ffd 0.516
+0x6e087dfd 0.525
+0x66007d7d 0.539
+0x66207d7d 0.542
+0xaf3d1a5d 0.552
+0x81404423 0.556
+0x814044a3 0.568
+0xa140c4a3 0.576
+0x8040cca3 0.577
+After optimizer- diff: 0x8040cca3 Accuracy: 0.577
+
+Estimates of attack accuracy:
+3 rounds:0.577
+4 rounds:0.535
+Run  15 : 
+0x1c2f9ae0 0.496
+0x1c2fbae0 0.507
+0x1c6fbae0 0.517
+0x1c6f3a40 0.523
+0x9d277fc5 0.524
+0x9db57f05 0.527
+0x95b57f05 0.556
+0x5248e8e2 0.56
+0x5208e8e2 0.562
+0xd208e8e2 0.574
+0xe048e870 0.596
+0x2008a160 0.605
+0x102840d0 0.634
+0x2840d0 0.636
+0x2040d0 0.661
+0x204880 0.669
+0x10002020 0.681
+0x80030 0.728
+0x2010006 0.729
+After optimizer- diff: 0x2010006 Accuracy: 0.729
+
+Estimates of attack accuracy:
+3 rounds:0.729
+4 rounds:0.697
+5 rounds:0.561
+Run  16 : 
+0xb2b86c23 0.483
+0xb2b86c2b 0.505
+0xb0b0682b 0.507
+0xb0b06a6a 0.508
+0xb0b07a6a 0.513
+0xb2b07a6b 0.522
+0xbcbc646b 0.528
+0xb4fc74e3 0.535
+0x4aaee36c 0.542
+0x64e8e36 0.575
+0x40e8e3e 0.612
+0xe8e3e 0.622
+0xe8c3e 0.647
+0x60b102e 0.65
+0x4081a36 0.663
+0x4081a16 0.672
+0x40c1a1e 0.682
+0x8018 0.69
+0x50018 0.692
+0x28208 0.694
+After optimizer- diff: 0x28208 Accuracy: 0.694
+
+Estimates of attack accuracy:
+3 rounds:0.694
+4 rounds:0.663
+5 rounds:0.566
+Run  17 : 
+0x36abff8a 0.527
+0x62b3403 0.528
+0x57277469 0.534
+0x66aed831 0.535
+0xfee1381 0.539
+0x34c5f4ae 0.551
+0x34c734ac 0.553
+0x10c3ae2c 0.56
+0x4c45626 0.563
+0x4c4562e 0.576
+0x24884414 0.589
+0xc4410 0.601
+0xc4010 0.603
+0xc5010 0.609
+0x85010 0.665
+0x10081000 0.673
+0x81004 0.705
+0x81408 0.711
+0x1018 0.731
+After optimizer- diff: 0x1018 Accuracy: 0.731
+
+Estimates of attack accuracy:
+3 rounds:0.731
+4 rounds:0.726
+5 rounds:0.61
+Run  18 : 
+0x25a794c4 0.524
+0x362fd880 0.531
+0x3e2fd880 0.546
+0x80086499 0.57
+0x34001000 0.585
+0x30001004 0.603
+0x34001004 0.604
+0x2400100c 0.635
+0x24000004 0.66
+0x20000000 0.736
+0x20004020 0.738
+0x4020 0.765
+0x20 0.788
+After optimizer- diff: 0x20 Accuracy: 0.788
+
+Estimates of attack accuracy:
+3 rounds:0.788
+4 rounds:0.79
+5 rounds:0.697
+6 rounds:0.647
+Run  19 : 
+0xccc0feba 0.523
+0xcce0ffba 0.525
+0x6cf0ff9e 0.526
+0x7ef0fb9e 0.535
+0x3ca0710a 0.536
+0x6ca0710a 0.539
+0x14106800 0.569
+0x4104800 0.601
+0x1400c840 0.602
+0x1408400c 0.626
+0x1408600c 0.657
+After optimizer- diff: 0x1408600c Accuracy: 0.657
+
+Estimates of attack accuracy:
+3 rounds:0.657
+4 rounds:0.613
+
+%run neural_difference_search.py simon 2 23 3 5 20 diff_fix 0x0444 0x1010
+
+Model: "sequential_4"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+dense_10 (Dense)             (None, 128)               8320      
+_________________________________________________________________
+dense_11 (Dense)             (None, 128)               16512     
+_________________________________________________________________
+dense_12 (Dense)             (None, 1)                 129       
+=================================================================
+Total params: 24,961
+Trainable params: 24,961
+Non-trainable params: 0
+_________________________________________________________________
+0x444 0x1010
+Train on 7549747 samples, validate on 838861 samples
+Epoch 1/5
+7549747/7549747 [==============================] - 17s 2us/step - loss: 0.1917 - acc: 0.7135 - val_loss: 0.1788 - val_acc: 0.7383
+Epoch 2/5
+7549747/7549747 [==============================] - 16s 2us/step - loss: 0.1465 - acc: 0.7922 - val_loss: 0.1263 - val_acc: 0.8212
+Epoch 3/5
+7549747/7549747 [==============================] - 16s 2us/step - loss: 0.1097 - acc: 0.8468 - val_loss: 0.0907 - val_acc: 0.8768
+Epoch 4/5
+7549747/7549747 [==============================] - 16s 2us/step - loss: 0.0867 - acc: 0.8807 - val_loss: 0.0837 - val_acc: 0.8838
+Epoch 5/5
+7549747/7549747 [==============================] - 17s 2us/step - loss: 0.0824 - acc: 0.8856 - val_loss: 0.0816 - val_acc: 0.8867
+Run  0 : 
+0xca017bc3 0.546
+0xca057bc3 0.555
+0x424d0b6e 0.587
+0x424c1b4e 0.588
+0x424d1b0c 0.592
+0x20d811e 0.727
+0x60d811e 0.752
+0x68d831e 0.754
+0x68d8b1e 0.811
+0x28d8b1e 0.817
+0x60b061c 0.855
+0x60b0314 0.86
+0x40e0700 0.862
+0x54f1606 0.866
+0x2440316 0.872
+0x4021688 0.874
+0x4405881 0.879
+0x484923 0.899
+0x82004305 0.915
+After optimizer- diff: 0x82004305 Accuracy: 0.915
+
+Estimates of attack accuracy:
+3 rounds:0.915
+4 rounds:0.884
+Run  1 : 
+0x487081fe 0.503
+0x5cf081fe 0.515
+0x5cf081fc 0.516
+0x5cf281fc 0.528
+0x36d6f09c 0.538
+0x36c6a0b9 0.577
+0x3746aaa9 0.58
+0x36462aa9 0.596
+0x36460aa9 0.617
+0x26c6028d 0.743
+0x6ca0b2c 0.753
+0x7814b0c 0.756
+0x4838308 0.794
+0x483830e 0.801
+0x240a883c 0.809
+0x8202093c 0.813
+0x8202013c 0.829
+0x80030132 0.83
+0x80034132 0.832
+0x80034112 0.862
+0x80034192 0.867
+0x844b4590 0.871
+0x201470a 0.879
+0x2014408 0.89
+0x2014400 0.898
+0x2014100 0.906
+0x2014102 0.919
+0x409183c 0.92
+0x409193c 0.923
+0x4081d3c 0.929
+0x40c1022 0.931
+0x4051d1e 0.934
+0x4051c0a 0.936
+0x2041410 0.939
+0x2040c18 0.95
+After optimizer- diff: 0x2040c18 Accuracy: 0.95
+
+Estimates of attack accuracy:
+3 rounds:0.95
+4 rounds:0.946
+5 rounds:0.627
+6 rounds:0.559
+Run  2 : 
+0x38e80ded 0.507
+0x30e80ded 0.517
+0x30e80fed 0.534
+0x30684f6e 0.547
+0x6028436e 0.553
+0x60284050 0.617
+0x60284040 0.647
+0x60204001 0.674
+0x60204081 0.684
+0x602040a1 0.689
+0x60204081 0.697
+0x40204081 0.7
+0x402040a1 0.71
+0x400040a1 0.753
+0x40a1 0.947
+0xa1 0.954
+0x4001a0 0.96
+0xa04081a3 0.961
+After optimizer- diff: 0xa04081a3 Accuracy: 0.961
+
+Estimates of attack accuracy:
+3 rounds:0.961
+4 rounds:0.944
+Run  3 : 
+0xb21cbc78 0.525
+0xb81c3c58 0.531
+0x78343c58 0.548
+0x423c2c70 0.561
+0x122b68db 0.583
+0x122b78ca 0.597
+0x162b78ca 0.599
+0x162b3cc8 0.607
+0x6482486 0.728
+0x6483486 0.763
+0x6483482 0.783
+0x6481482 0.831
+0x4490488 0.855
+0x86411485 0.862
+0x400121f 0.87
+0x4001012 0.915
+0x400101a 0.933
+0x400100a 0.936
+0x2040810 0.942
+0x2040814 0.948
+After optimizer- diff: 0x2040814 Accuracy: 0.948
+
+Estimates of attack accuracy:
+3 rounds:0.948
+4 rounds:0.926
+5 rounds:0.528
+Run  4 : 
+0x7d753a70 0.5
+0x7d753a72 0.51
+0xdd75227e 0.511
+0xddf42276 0.529
+0xddd42276 0.53
+0xddc42276 0.539
+0xddc42a76 0.545
+0xdc10b37 0.574
+0xdc11b37 0.579
+0xd411b37 0.696
+0xd011b37 0.705
+0x1f001b37 0.708
+0x1b002917 0.718
+0x1a4d2117 0.729
+0x1e4f0b07 0.739
+0x9a4108ab 0.746
+0x924008ab 0.75
+0x924048ab 0.751
+0x9240582b 0.761
+0x1a09610a 0.816
+0x1a01610a 0.824
+0x1201611a 0.834
+0x1208651a 0.837
+0xa090114 0.846
+0x20c0118 0.885
+0x20c011a 0.889
+0x81c02 0.896
+0x90422 0.938
+0x6011c0e 0.944
+0x4001000 0.95
+0x2000c00 0.959
+0x400102 0.965
+0x100 0.976
+0x1 0.982
+After optimizer- diff: 0x1 Accuracy: 0.982
+
+Estimates of attack accuracy:
+3 rounds:0.982
+4 rounds:0.982
+5 rounds:0.938
+6 rounds:0.869
+7 rounds:0.521
+8 rounds:0.57
+Run  5 : 
+0xbfaa4df3 0.508
+0xbfaa0cf3 0.515
+0xbfaa0cf7 0.525
+0xb7aa0af7 0.534
+0xb5ca12b6 0.589
+0xb5ca10b6 0.591
+0xb7ca1bbe 0.604
+0x97ca1bbe 0.62
+0x97083b9f 0.733
+0x3001313 0.822
+0x2001393 0.83
+0x2081393 0.857
+0x1091397 0.867
+0x3030789 0.872
+0x80410b89 0.877
+0x80410201 0.909
+0x80010203 0.92
+0x601 0.931
+0x1000681 0.934
+0x1004481 0.941
+0x404081 0.952
+0x80004003 0.961
+0x80000003 0.972
+0x80004003 0.975
+0x81 0.983
+0x81 0.984
+After optimizer- diff: 0x81 Accuracy: 0.984
+
+Estimates of attack accuracy:
+3 rounds:0.984
+4 rounds:0.974
+5 rounds:0.873
+6 rounds:0.844
+7 rounds:0.537
+Run  6 : 
+0xce989690 0.499
+0xce989680 0.512
+0xce98d680 0.519
+0xead89282 0.522
+0xead99282 0.542
+0xeaf89282 0.547
+0x4aa89681 0.549
+0x42a89685 0.55
+0x40a89681 0.571
+0x40a89685 0.578
+0x40889687 0.585
+0x408a9e07 0.594
+0x40ca9e86 0.604
+0x6280da6b 0.615
+0xb2818832 0.617
+0x9281c8a6 0.644
+0x8281c8a6 0.803
+0x281c486 0.832
+0x2810602 0.843
+0x2010602 0.901
+0x2010e02 0.904
+0x81000483 0.939
+0x81000683 0.95
+0x80404183 0.972
+0x80 0.973
+0x81 0.982
+0x80000082 0.986
+After optimizer- diff: 0x80000082 Accuracy: 0.986
+
+Estimates of attack accuracy:
+3 rounds:0.986
+4 rounds:0.97
+5 rounds:0.784
+6 rounds:0.831
+7 rounds:0.523
+8 rounds:0.546
+Run  7 : 
+0xc9015b98 0.517
+0xc9015bd8 0.519
+0xc1015bd8 0.582
+0xc1095bd8 0.592
+0xc10bd9fa 0.601
+0x814bd99c 0.708
+0x814bdb9c 0.736
+0xa407da8e 0.744
+0x4075a83 0.857
+0x40e0b0a 0.869
+0x608001e 0.87
+0x91114 0.876
+0x1114 0.888
+0x83410b83 0.891
+0x1410b81 0.906
+0x1400500 0.92
+0x400500 0.925
+0x500 0.948
+0x2000802 0.951
+0x2000002 0.952
+0x10104 0.954
+0x800 0.967
+0x2 0.969
+0x802 0.971
+After optimizer- diff: 0x802 Accuracy: 0.971
+
+Estimates of attack accuracy:
+3 rounds:0.971
+4 rounds:0.957
+5 rounds:0.792
+6 rounds:0.717
+Run  8 : 
+0x8ffd225f 0.511
+0xa7fd7afd 0.52
+0xa5dd7af1 0.532
+0xa5df7af1 0.541
+0x85664a71 0.546
+0x8d664a71 0.564
+0xd664a71 0.569
+0xd664a61 0.577
+0x1264a41 0.597
+0x1224a41 0.599
+0x11634a41 0.616
+0x646241 0.657
+0x80604011 0.695
+0x80404011 0.849
+0x404011 0.896
+0x404001 0.943
+0x400001 0.968
+0x1 0.982
+0x80 0.983
+After optimizer- diff: 0x80 Accuracy: 0.983
+
+Estimates of attack accuracy:
+3 rounds:0.983
+4 rounds:0.97
+5 rounds:0.882
+6 rounds:0.914
+7 rounds:0.552
+8 rounds:0.607
+Run  9 : 
+0x1ba804be 0.55
+0x9ba804be 0.572
+0x9b8804ae 0.585
+0x9b0804ae 0.695
+0x930804ae 0.71
+0x930804be 0.735
+0x9609043f 0.753
+0x920964ad 0.764
+0x844d47ab 0.845
+0x804d4fab 0.847
+0x804d0faa 0.854
+0x804d0fa3 0.865
+0x1071ea6 0.866
+0xf4caf 0.872
+0x1000422 0.878
+0x81000400 0.888
+0x1000c00 0.911
+0xc00 0.942
+0x2000c00 0.952
+0x2000800 0.956
+0x2000c00 0.962
+0x400 0.971
+0x80000002 0.976
+After optimizer- diff: 0x80000002 Accuracy: 0.976
+
+Estimates of attack accuracy:
+3 rounds:0.976
+4 rounds:0.972
+5 rounds:0.786
+6 rounds:0.85
+7 rounds:0.538
+8 rounds:0.592
+Run  10 : 
+0xf38233ce 0.551
+0xf38233c6 0.592
+0xf7862347 0.594
+0xf7862bc6 0.607
+0x75866ffb 0.612
+0x5688276c 0.617
+0x760f776b 0.618
+0x504424db 0.648
+0x91400315 0.722
+0x91401114 0.732
+0x80401114 0.871
+0x844c0708 0.873
+After optimizer- diff: 0x844c0708 Accuracy: 0.873
+
+Estimates of attack accuracy:
+3 rounds:0.873
+4 rounds:0.84
+Run  11 : 
+0x5bbdb044 0.503
+0x5bbdb040 0.522
+0x5fac9040 0.528
+0x5fac1844 0.536
+0x5eac5844 0.546
+0x4eac5844 0.551
+0xdf405960 0.552
+0xd5405930 0.574
+0x55405930 0.598
+0x25005910 0.707
+0x24005910 0.742
+0x24005118 0.746
+0x26005118 0.749
+0x26045118 0.76
+0x6045018 0.898
+0x408100c 0.9
+0x4081808 0.902
+0x4001808 0.93
+0x4001818 0.932
+0x4041818 0.935
+0x4001818 0.939
+0x40410 0.951
+0x2000400 0.953
+0x2000402 0.956
+0x2000402 0.959
+0x400100 0.976
+After optimizer- diff: 0x400100 Accuracy: 0.976
+
+Estimates of attack accuracy:
+3 rounds:0.976
+4 rounds:0.963
+5 rounds:0.647
+6 rounds:0.847
+7 rounds:0.534
+8 rounds:0.538
+Run  12 : 
+0x29b21514 0.525
+0x29b25510 0.533
+0x21b81577 0.546
+0x1a9ba47 0.563
+0x3a1bb43 0.602
+0x14a9fada 0.607
+0x14a9fbda 0.621
+0x14a9d3de 0.627
+0x14a9d3fe 0.629
+0x6e1df5b 0.633
+0x4160e792 0.639
+0x4160e692 0.641
+0xd060e102 0.642
+0x9060e102 0.66
+0x9060e100 0.673
+0x8060e100 0.689
+0x606100 0.745
+0x406100 0.835
+0x6100 0.864
+0x4100 0.967
+After optimizer- diff: 0x4100 Accuracy: 0.967
+
+Estimates of attack accuracy:
+3 rounds:0.967
+4 rounds:0.968
+5 rounds:0.669
+6 rounds:0.827
+Run  13 : 
+0x9692c404 0.508
+0x9c10e40c 0.511
+0x8c10c408 0.515
+0x8c50c408 0.521
+0x2df2c428 0.532
+0x754316aa 0.566
+0x314316aa 0.568
+0x314316ba 0.583
+0x310196ba 0.594
+0x210d822a 0.703
+0x10d822a 0.744
+0x810d832a 0.747
+0x99e10 0.764
+0x91610 0.836
+0x90610 0.854
+0x80612 0.863
+0x86001e8d 0.872
+0x4005d0c 0.875
+0x4005d0e 0.893
+0x404190e 0.913
+0x404190a 0.921
+0x4041902 0.924
+0x6041902 0.927
+0x4041c02 0.929
+0x6001c18 0.931
+0x6091838 0.933
+0x40c1c2c 0.94
+0x40412 0.945
+0x10802 0.947
+0x40c14 0.95
+0x80000003 0.974
+0x80000003 0.976
+0x400101 0.98
+After optimizer- diff: 0x400101 Accuracy: 0.98
+
+Estimates of attack accuracy:
+3 rounds:0.98
+4 rounds:0.968
+5 rounds:0.567
+6 rounds:0.835
+Run  14 : 
+0xa90480d8 0.527
+0xa90480d0 0.533
+0xa06dbcd0 0.544
+0x60ca8c2b 0.564
+0x60ca8c0b 0.584
+0x604d842f 0.598
+0x204d842f 0.721
+0x224d842f 0.738
+0x20cd840b 0.744
+0x8cd50a 0.753
+0x48d9c0a 0.758
+0x48d9c02 0.782
+0x899c02 0.796
+0x4859e30 0.805
+0x4859e34 0.806
+0x51738 0.853
+0x51f38 0.857
+0x80404191 0.888
+0x80400191 0.89
+0x41a3 0.911
+0x4183 0.917
+0x121 0.924
+0x4021 0.953
+0x4020 0.96
+0x4000 0.969
+0x4001 0.972
+0x80 0.978
+0x81 0.98
+0x404101 0.982
+After optimizer- diff: 0x404101 Accuracy: 0.982
+
+Estimates of attack accuracy:
+3 rounds:0.982
+4 rounds:0.971
+5 rounds:0.562
+6 rounds:0.843
+Run  15 : 
+0x67025a9e 0.572
+0x2702da9e 0.712
+0x27029a8c 0.727
+0x7038a8c 0.73
+0x7039a8c 0.732
+0x3431a8d 0.854
+0x81420a8b 0.863
+0x8140438b 0.87
+0x81404383 0.909
+0x81400383 0.921
+0x4180 0.954
+0x20400120 0.957
+0x804081a2 0.964
+0x404100 0.969
+0x80000083 0.98
+After optimizer- diff: 0x80000083 Accuracy: 0.98
+
+Estimates of attack accuracy:
+3 rounds:0.98
+4 rounds:0.972
+5 rounds:0.795
+6 rounds:0.843
+7 rounds:0.528
+8 rounds:0.577
+Run  16 : 
+0x2eb10056 0.498
+0xaeb10076 0.519
+0xae911556 0.521
+0xae917156 0.523
+0xae837d46 0.525
+0xbf0bff00 0.534
+0xb7afa771 0.537
+0xa7afa3f3 0.547
+0x87afa3f3 0.575
+0x97aba3fb 0.588
+0x83abe3fb 0.615
+0x1834389 0.708
+0x1820389 0.728
+0x182038d 0.729
+0x182030d 0.758
+0x100030d 0.826
+0x102030d 0.851
+0x302030d 0.862
+0x83024308 0.874
+0x8203438c 0.876
+0x80004e85 0.897
+0x80000e85 0.904
+0x50402 0.915
+0x5050a 0.921
+0x2050502 0.929
+0x2050518 0.934
+0x404082 0.944
+0x414004 0.945
+0x40a0 0.951
+0x80004080 0.957
+0x80 0.984
+After optimizer- diff: 0x80 Accuracy: 0.984
+
+Estimates of attack accuracy:
+3 rounds:0.984
+4 rounds:0.969
+5 rounds:0.875
+6 rounds:0.897
+7 rounds:0.579
+8 rounds:0.543
+Run  17 : 
+0x9537c084 0.484
+0x9537c080 0.52
+0x1536e081 0.522
+0x152cc181 0.566
+0x152c41a1 0.597
+0x142c1391 0.605
+0x9f0d5217 0.684
+0x9f0c5217 0.686
+0x9f4c1217 0.687
+0x9f4c1297 0.689
+0x9f4452b5 0.709
+0x9f4452b1 0.747
+0x86055610 0.823
+0x86055710 0.839
+0x86015714 0.855
+0x864e5f3e 0.857
+0x64859b6 0.861
+0x864859b6 0.865
+0x864b54ae 0.87
+0x2480427 0.878
+0x87041086 0.883
+0x81030f9b 0.885
+0x604100c 0.923
+0x604140c 0.932
+0x604140e 0.934
+After optimizer- diff: 0x604140e Accuracy: 0.934
+
+Estimates of attack accuracy:
+3 rounds:0.934
+4 rounds:0.924
+5 rounds:0.534
+Run  18 : 
+0x769a6f39 0.539
+0x76a8473d 0.547
+0x7688473d 0.603
+0x168d4ebd 0.612
+0x948f18bd 0.629
+0x848f10bd 0.71
+0xa48f10bd 0.715
+0xa48f10b9 0.726
+0xa48f00b9 0.736
+0x848f0039 0.749
+0x840f0038 0.802
+0x840f0438 0.83
+0x850f0438 0.843
+0x8507043c 0.849
+0x85020c1c 0.852
+0x87021c14 0.858
+0x6021814 0.867
+0x80480cb0 0.88
+0x804809b0 0.889
+0x804809b1 0.894
+0x804009a1 0.895
+0x80400921 0.901
+0x2080d20 0.915
+0x6081d30 0.93
+0x4091924 0.939
+0x604181c 0.948
+After optimizer- diff: 0x604181c Accuracy: 0.948
+
+Estimates of attack accuracy:
+3 rounds:0.948
+4 rounds:0.918
+Run  19 : 
+0x32278fe1 0.553
+0xd167a7f4 0.555
+0xd147a7f4 0.561
+0xd147a7f6 0.567
+0xd147a7f7 0.575
+0xd149a7f7 0.583
+0x5041a7f7 0.613
+0x5041e7f7 0.624
+0x5001f7f7 0.632
+0x5208e5f1 0.633
+0x5248edd1 0.638
+0x5248edf1 0.641
+0x2200d41 0.657
+0x202841 0.688
+0x200841 0.739
+0x202041 0.788
+0x202001 0.798
+0x1 0.974
+0x4001 0.978
+After optimizer- diff: 0x4001 Accuracy: 0.978
+
+Estimates of attack accuracy:
+3 rounds:0.978
+4 rounds:0.974
+5 rounds:0.674
+6 rounds:0.836
+
+
+
+%run neural_difference_search.py simon 2 23 3 5 20 diff_fix 0x0444 0x1010
+
+Model: "sequential_4"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+dense_10 (Dense)             (None, 128)               8320      
+_________________________________________________________________
+dense_11 (Dense)             (None, 128)               16512     
+_________________________________________________________________
+dense_12 (Dense)             (None, 1)                 129       
+=================================================================
+Total params: 24,961
+Trainable params: 24,961
+Non-trainable params: 0
+_________________________________________________________________
+0x444 0x1010
+Train on 7549747 samples, validate on 838861 samples
+Epoch 1/5
+7549747/7549747 [==============================] - 17s 2us/step - loss: 0.1917 - acc: 0.7135 - val_loss: 0.1788 - val_acc: 0.7383
+Epoch 2/5
+7549747/7549747 [==============================] - 16s 2us/step - loss: 0.1465 - acc: 0.7922 - val_loss: 0.1263 - val_acc: 0.8212
+Epoch 3/5
+7549747/7549747 [==============================] - 16s 2us/step - loss: 0.1097 - acc: 0.8468 - val_loss: 0.0907 - val_acc: 0.8768
+Epoch 4/5
+7549747/7549747 [==============================] - 16s 2us/step - loss: 0.0867 - acc: 0.8807 - val_loss: 0.0837 - val_acc: 0.8838
+Epoch 5/5
+7549747/7549747 [==============================] - 17s 2us/step - loss: 0.0824 - acc: 0.8856 - val_loss: 0.0816 - val_acc: 0.8867
+Run  0 : 
+0xca017bc3 0.546
+0xca057bc3 0.555
+0x424d0b6e 0.587
+0x424c1b4e 0.588
+0x424d1b0c 0.592
+0x20d811e 0.727
+0x60d811e 0.752
+0x68d831e 0.754
+0x68d8b1e 0.811
+0x28d8b1e 0.817
+0x60b061c 0.855
+0x60b0314 0.86
+0x40e0700 0.862
+0x54f1606 0.866
+0x2440316 0.872
+0x4021688 0.874
+0x4405881 0.879
+0x484923 0.899
+0x82004305 0.915
+After optimizer- diff: 0x82004305 Accuracy: 0.915
+
+Estimates of attack accuracy:
+3 rounds:0.915
+4 rounds:0.884
+Run  1 : 
+0x487081fe 0.503
+0x5cf081fe 0.515
+0x5cf081fc 0.516
+0x5cf281fc 0.528
+0x36d6f09c 0.538
+0x36c6a0b9 0.577
+0x3746aaa9 0.58
+0x36462aa9 0.596
+0x36460aa9 0.617
+0x26c6028d 0.743
+0x6ca0b2c 0.753
+0x7814b0c 0.756
+0x4838308 0.794
+0x483830e 0.801
+0x240a883c 0.809
+0x8202093c 0.813
+0x8202013c 0.829
+0x80030132 0.83
+0x80034132 0.832
+0x80034112 0.862
+0x80034192 0.867
+0x844b4590 0.871
+0x201470a 0.879
+0x2014408 0.89
+0x2014400 0.898
+0x2014100 0.906
+0x2014102 0.919
+0x409183c 0.92
+0x409193c 0.923
+0x4081d3c 0.929
+0x40c1022 0.931
+0x4051d1e 0.934
+0x4051c0a 0.936
+0x2041410 0.939
+0x2040c18 0.95
+After optimizer- diff: 0x2040c18 Accuracy: 0.95
+
+Estimates of attack accuracy:
+3 rounds:0.95
+4 rounds:0.946
+5 rounds:0.627
+6 rounds:0.559
+Run  2 : 
+0x38e80ded 0.507
+0x30e80ded 0.517
+0x30e80fed 0.534
+0x30684f6e 0.547
+0x6028436e 0.553
+0x60284050 0.617
+0x60284040 0.647
+0x60204001 0.674
+0x60204081 0.684
+0x602040a1 0.689
+0x60204081 0.697
+0x40204081 0.7
+0x402040a1 0.71
+0x400040a1 0.753
+0x40a1 0.947
+0xa1 0.954
+0x4001a0 0.96
+0xa04081a3 0.961
+After optimizer- diff: 0xa04081a3 Accuracy: 0.961
+
+Estimates of attack accuracy:
+3 rounds:0.961
+4 rounds:0.944
+Run  3 : 
+0xb21cbc78 0.525
+0xb81c3c58 0.531
+0x78343c58 0.548
+0x423c2c70 0.561
+0x122b68db 0.583
+0x122b78ca 0.597
+0x162b78ca 0.599
+0x162b3cc8 0.607
+0x6482486 0.728
+0x6483486 0.763
+0x6483482 0.783
+0x6481482 0.831
+0x4490488 0.855
+0x86411485 0.862
+0x400121f 0.87
+0x4001012 0.915
+0x400101a 0.933
+0x400100a 0.936
+0x2040810 0.942
+0x2040814 0.948
+After optimizer- diff: 0x2040814 Accuracy: 0.948
+
+Estimates of attack accuracy:
+3 rounds:0.948
+4 rounds:0.926
+5 rounds:0.528
+Run  4 : 
+0x7d753a70 0.5
+0x7d753a72 0.51
+0xdd75227e 0.511
+0xddf42276 0.529
+0xddd42276 0.53
+0xddc42276 0.539
+0xddc42a76 0.545
+0xdc10b37 0.574
+0xdc11b37 0.579
+0xd411b37 0.696
+0xd011b37 0.705
+0x1f001b37 0.708
+0x1b002917 0.718
+0x1a4d2117 0.729
+0x1e4f0b07 0.739
+0x9a4108ab 0.746
+0x924008ab 0.75
+0x924048ab 0.751
+0x9240582b 0.761
+0x1a09610a 0.816
+0x1a01610a 0.824
+0x1201611a 0.834
+0x1208651a 0.837
+0xa090114 0.846
+0x20c0118 0.885
+0x20c011a 0.889
+0x81c02 0.896
+0x90422 0.938
+0x6011c0e 0.944
+0x4001000 0.95
+0x2000c00 0.959
+0x400102 0.965
+0x100 0.976
+0x1 0.982
+After optimizer- diff: 0x1 Accuracy: 0.982
+
+Estimates of attack accuracy:
+3 rounds:0.982
+4 rounds:0.982
+5 rounds:0.938
+6 rounds:0.869
+7 rounds:0.521
+8 rounds:0.57
+Run  5 : 
+0xbfaa4df3 0.508
+0xbfaa0cf3 0.515
+0xbfaa0cf7 0.525
+0xb7aa0af7 0.534
+0xb5ca12b6 0.589
+0xb5ca10b6 0.591
+0xb7ca1bbe 0.604
+0x97ca1bbe 0.62
+0x97083b9f 0.733
+0x3001313 0.822
+0x2001393 0.83
+0x2081393 0.857
+0x1091397 0.867
+0x3030789 0.872
+0x80410b89 0.877
+0x80410201 0.909
+0x80010203 0.92
+0x601 0.931
+0x1000681 0.934
+0x1004481 0.941
+0x404081 0.952
+0x80004003 0.961
+0x80000003 0.972
+0x80004003 0.975
+0x81 0.983
+0x81 0.984
+After optimizer- diff: 0x81 Accuracy: 0.984
+
+Estimates of attack accuracy:
+3 rounds:0.984
+4 rounds:0.974
+5 rounds:0.873
+6 rounds:0.844
+7 rounds:0.537
+Run  6 : 
+0xce989690 0.499
+0xce989680 0.512
+0xce98d680 0.519
+0xead89282 0.522
+0xead99282 0.542
+0xeaf89282 0.547
+0x4aa89681 0.549
+0x42a89685 0.55
+0x40a89681 0.571
+0x40a89685 0.578
+0x40889687 0.585
+0x408a9e07 0.594
+0x40ca9e86 0.604
+0x6280da6b 0.615
+0xb2818832 0.617
+0x9281c8a6 0.644
+0x8281c8a6 0.803
+0x281c486 0.832
+0x2810602 0.843
+0x2010602 0.901
+0x2010e02 0.904
+0x81000483 0.939
+0x81000683 0.95
+0x80404183 0.972
+0x80 0.973
+0x81 0.982
+0x80000082 0.986
+After optimizer- diff: 0x80000082 Accuracy: 0.986
+
+Estimates of attack accuracy:
+3 rounds:0.986
+4 rounds:0.97
+5 rounds:0.784
+6 rounds:0.831
+7 rounds:0.523
+8 rounds:0.546
+Run  7 : 
+0xc9015b98 0.517
+0xc9015bd8 0.519
+0xc1015bd8 0.582
+0xc1095bd8 0.592
+0xc10bd9fa 0.601
+0x814bd99c 0.708
+0x814bdb9c 0.736
+0xa407da8e 0.744
+0x4075a83 0.857
+0x40e0b0a 0.869
+0x608001e 0.87
+0x91114 0.876
+0x1114 0.888
+0x83410b83 0.891
+0x1410b81 0.906
+0x1400500 0.92
+0x400500 0.925
+0x500 0.948
+0x2000802 0.951
+0x2000002 0.952
+0x10104 0.954
+0x800 0.967
+0x2 0.969
+0x802 0.971
+After optimizer- diff: 0x802 Accuracy: 0.971
+
+Estimates of attack accuracy:
+3 rounds:0.971
+4 rounds:0.957
+5 rounds:0.792
+6 rounds:0.717
+Run  8 : 
+0x8ffd225f 0.511
+0xa7fd7afd 0.52
+0xa5dd7af1 0.532
+0xa5df7af1 0.541
+0x85664a71 0.546
+0x8d664a71 0.564
+0xd664a71 0.569
+0xd664a61 0.577
+0x1264a41 0.597
+0x1224a41 0.599
+0x11634a41 0.616
+0x646241 0.657
+0x80604011 0.695
+0x80404011 0.849
+0x404011 0.896
+0x404001 0.943
+0x400001 0.968
+0x1 0.982
+0x80 0.983
+After optimizer- diff: 0x80 Accuracy: 0.983
+
+Estimates of attack accuracy:
+3 rounds:0.983
+4 rounds:0.97
+5 rounds:0.882
+6 rounds:0.914
+7 rounds:0.552
+8 rounds:0.607
+Run  9 : 
+0x1ba804be 0.55
+0x9ba804be 0.572
+0x9b8804ae 0.585
+0x9b0804ae 0.695
+0x930804ae 0.71
+0x930804be 0.735
+0x9609043f 0.753
+0x920964ad 0.764
+0x844d47ab 0.845
+0x804d4fab 0.847
+0x804d0faa 0.854
+0x804d0fa3 0.865
+0x1071ea6 0.866
+0xf4caf 0.872
+0x1000422 0.878
+0x81000400 0.888
+0x1000c00 0.911
+0xc00 0.942
+0x2000c00 0.952
+0x2000800 0.956
+0x2000c00 0.962
+0x400 0.971
+0x80000002 0.976
+After optimizer- diff: 0x80000002 Accuracy: 0.976
+
+Estimates of attack accuracy:
+3 rounds:0.976
+4 rounds:0.972
+5 rounds:0.786
+6 rounds:0.85
+7 rounds:0.538
+8 rounds:0.592
+Run  10 : 
+0xf38233ce 0.551
+0xf38233c6 0.592
+0xf7862347 0.594
+0xf7862bc6 0.607
+0x75866ffb 0.612
+0x5688276c 0.617
+0x760f776b 0.618
+0x504424db 0.648
+0x91400315 0.722
+0x91401114 0.732
+0x80401114 0.871
+0x844c0708 0.873
+After optimizer- diff: 0x844c0708 Accuracy: 0.873
+
+Estimates of attack accuracy:
+3 rounds:0.873
+4 rounds:0.84
+Run  11 : 
+0x5bbdb044 0.503
+0x5bbdb040 0.522
+0x5fac9040 0.528
+0x5fac1844 0.536
+0x5eac5844 0.546
+0x4eac5844 0.551
+0xdf405960 0.552
+0xd5405930 0.574
+0x55405930 0.598
+0x25005910 0.707
+0x24005910 0.742
+0x24005118 0.746
+0x26005118 0.749
+0x26045118 0.76
+0x6045018 0.898
+0x408100c 0.9
+0x4081808 0.902
+0x4001808 0.93
+0x4001818 0.932
+0x4041818 0.935
+0x4001818 0.939
+0x40410 0.951
+0x2000400 0.953
+0x2000402 0.956
+0x2000402 0.959
+0x400100 0.976
+After optimizer- diff: 0x400100 Accuracy: 0.976
+
+Estimates of attack accuracy:
+3 rounds:0.976
+4 rounds:0.963
+5 rounds:0.647
+6 rounds:0.847
+7 rounds:0.534
+8 rounds:0.538
+Run  12 : 
+0x29b21514 0.525
+0x29b25510 0.533
+0x21b81577 0.546
+0x1a9ba47 0.563
+0x3a1bb43 0.602
+0x14a9fada 0.607
+0x14a9fbda 0.621
+0x14a9d3de 0.627
+0x14a9d3fe 0.629
+0x6e1df5b 0.633
+0x4160e792 0.639
+0x4160e692 0.641
+0xd060e102 0.642
+0x9060e102 0.66
+0x9060e100 0.673
+0x8060e100 0.689
+0x606100 0.745
+0x406100 0.835
+0x6100 0.864
+0x4100 0.967
+After optimizer- diff: 0x4100 Accuracy: 0.967
+
+Estimates of attack accuracy:
+3 rounds:0.967
+4 rounds:0.968
+5 rounds:0.669
+6 rounds:0.827
+Run  13 : 
+0x9692c404 0.508
+0x9c10e40c 0.511
+0x8c10c408 0.515
+0x8c50c408 0.521
+0x2df2c428 0.532
+0x754316aa 0.566
+0x314316aa 0.568
+0x314316ba 0.583
+0x310196ba 0.594
+0x210d822a 0.703
+0x10d822a 0.744
+0x810d832a 0.747
+0x99e10 0.764
+0x91610 0.836
+0x90610 0.854
+0x80612 0.863
+0x86001e8d 0.872
+0x4005d0c 0.875
+0x4005d0e 0.893
+0x404190e 0.913
+0x404190a 0.921
+0x4041902 0.924
+0x6041902 0.927
+0x4041c02 0.929
+0x6001c18 0.931
+0x6091838 0.933
+0x40c1c2c 0.94
+0x40412 0.945
+0x10802 0.947
+0x40c14 0.95
+0x80000003 0.974
+0x80000003 0.976
+0x400101 0.98
+After optimizer- diff: 0x400101 Accuracy: 0.98
+
+Estimates of attack accuracy:
+3 rounds:0.98
+4 rounds:0.968
+5 rounds:0.567
+6 rounds:0.835
+Run  14 : 
+0xa90480d8 0.527
+0xa90480d0 0.533
+0xa06dbcd0 0.544
+0x60ca8c2b 0.564
+0x60ca8c0b 0.584
+0x604d842f 0.598
+0x204d842f 0.721
+0x224d842f 0.738
+0x20cd840b 0.744
+0x8cd50a 0.753
+0x48d9c0a 0.758
+0x48d9c02 0.782
+0x899c02 0.796
+0x4859e30 0.805
+0x4859e34 0.806
+0x51738 0.853
+0x51f38 0.857
+0x80404191 0.888
+0x80400191 0.89
+0x41a3 0.911
+0x4183 0.917
+0x121 0.924
+0x4021 0.953
+0x4020 0.96
+0x4000 0.969
+0x4001 0.972
+0x80 0.978
+0x81 0.98
+0x404101 0.982
+After optimizer- diff: 0x404101 Accuracy: 0.982
+
+Estimates of attack accuracy:
+3 rounds:0.982
+4 rounds:0.971
+5 rounds:0.562
+6 rounds:0.843
+Run  15 : 
+0x67025a9e 0.572
+0x2702da9e 0.712
+0x27029a8c 0.727
+0x7038a8c 0.73
+0x7039a8c 0.732
+0x3431a8d 0.854
+0x81420a8b 0.863
+0x8140438b 0.87
+0x81404383 0.909
+0x81400383 0.921
+0x4180 0.954
+0x20400120 0.957
+0x804081a2 0.964
+0x404100 0.969
+0x80000083 0.98
+After optimizer- diff: 0x80000083 Accuracy: 0.98
+
+Estimates of attack accuracy:
+3 rounds:0.98
+4 rounds:0.972
+5 rounds:0.795
+6 rounds:0.843
+7 rounds:0.528
+8 rounds:0.577
+Run  16 : 
+0x2eb10056 0.498
+0xaeb10076 0.519
+0xae911556 0.521
+0xae917156 0.523
+0xae837d46 0.525
+0xbf0bff00 0.534
+0xb7afa771 0.537
+0xa7afa3f3 0.547
+0x87afa3f3 0.575
+0x97aba3fb 0.588
+0x83abe3fb 0.615
+0x1834389 0.708
+0x1820389 0.728
+0x182038d 0.729
+0x182030d 0.758
+0x100030d 0.826
+0x102030d 0.851
+0x302030d 0.862
+0x83024308 0.874
+0x8203438c 0.876
+0x80004e85 0.897
+0x80000e85 0.904
+0x50402 0.915
+0x5050a 0.921
+0x2050502 0.929
+0x2050518 0.934
+0x404082 0.944
+0x414004 0.945
+0x40a0 0.951
+0x80004080 0.957
+0x80 0.984
+After optimizer- diff: 0x80 Accuracy: 0.984
+
+Estimates of attack accuracy:
+3 rounds:0.984
+4 rounds:0.969
+5 rounds:0.875
+6 rounds:0.897
+7 rounds:0.579
+8 rounds:0.543
+Run  17 : 
+0x9537c084 0.484
+0x9537c080 0.52
+0x1536e081 0.522
+0x152cc181 0.566
+0x152c41a1 0.597
+0x142c1391 0.605
+0x9f0d5217 0.684
+0x9f0c5217 0.686
+0x9f4c1217 0.687
+0x9f4c1297 0.689
+0x9f4452b5 0.709
+0x9f4452b1 0.747
+0x86055610 0.823
+0x86055710 0.839
+0x86015714 0.855
+0x864e5f3e 0.857
+0x64859b6 0.861
+0x864859b6 0.865
+0x864b54ae 0.87
+0x2480427 0.878
+0x87041086 0.883
+0x81030f9b 0.885
+0x604100c 0.923
+0x604140c 0.932
+0x604140e 0.934
+After optimizer- diff: 0x604140e Accuracy: 0.934
+
+Estimates of attack accuracy:
+3 rounds:0.934
+4 rounds:0.924
+5 rounds:0.534
+Run  18 : 
+0x769a6f39 0.539
+0x76a8473d 0.547
+0x7688473d 0.603
+0x168d4ebd 0.612
+0x948f18bd 0.629
+0x848f10bd 0.71
+0xa48f10bd 0.715
+0xa48f10b9 0.726
+0xa48f00b9 0.736
+0x848f0039 0.749
+0x840f0038 0.802
+0x840f0438 0.83
+0x850f0438 0.843
+0x8507043c 0.849
+0x85020c1c 0.852
+0x87021c14 0.858
+0x6021814 0.867
+0x80480cb0 0.88
+0x804809b0 0.889
+0x804809b1 0.894
+0x804009a1 0.895
+0x80400921 0.901
+0x2080d20 0.915
+0x6081d30 0.93
+0x4091924 0.939
+0x604181c 0.948
+After optimizer- diff: 0x604181c Accuracy: 0.948
+
+Estimates of attack accuracy:
+3 rounds:0.948
+4 rounds:0.918
+Run  19 : 
+0x32278fe1 0.553
+0xd167a7f4 0.555
+0xd147a7f4 0.561
+0xd147a7f6 0.567
+0xd147a7f7 0.575
+0xd149a7f7 0.583
+0x5041a7f7 0.613
+0x5041e7f7 0.624
+0x5001f7f7 0.632
+0x5208e5f1 0.633
+0x5248edd1 0.638
+0x5248edf1 0.641
+0x2200d41 0.657
+0x202841 0.688
+0x200841 0.739
+0x202041 0.788
+0x202001 0.798
+0x1 0.974
+0x4001 0.978
+After optimizer- diff: 0x4001 Accuracy: 0.978
+
+Estimates of attack accuracy:
+3 rounds:0.978
+4 rounds:0.974
+5 rounds:0.674
+6 rounds:0.836
+
+Model: "sequential_6"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+dense_16 (Dense)             (None, 1024)              66560     
+_________________________________________________________________
+dense_17 (Dense)             (None, 1024)              1049600   
+_________________________________________________________________
+dense_18 (Dense)             (None, 1)                 1025      
+=================================================================
+Total params: 1,117,185
+Trainable params: 1,117,185
+Non-trainable params: 0
+_________________________________________________________________
+0x444 0x1010
+Train on 30198988 samples, validate on 3355444 samples
+Epoch 1/5
+30198988/30198988 [==============================] - 110s 4us/step - loss: 0.0764 - acc: 0.8954 - val_loss: 0.0491 - val_acc: 0.9388
+Epoch 2/5
+30198988/30198988 [==============================] - 110s 4us/step - loss: 0.0474 - acc: 0.9390 - val_loss: 0.0469 - val_acc: 0.9390
+Epoch 3/5
+30198988/30198988 [==============================] - 110s 4us/step - loss: 0.0458 - acc: 0.9410 - val_loss: 0.0453 - val_acc: 0.9414
+Epoch 4/5
+30198988/30198988 [==============================] - 110s 4us/step - loss: 0.0428 - acc: 0.9453 - val_loss: 0.0400 - val_acc: 0.9496
+Epoch 5/5
+30198988/30198988 [==============================] - 110s 4us/step - loss: 0.0388 - acc: 0.9514 - val_loss: 0.0370 - val_acc: 0.9537
+Run  0 : 
+0x400cc9c7 0.562
+0x4008c9c7 0.584
+0xc40585cd 0.591
+0x4459f99 0.681
+0x86c58fb9 0.717
+0x6010f99 0.79
+0x3090f89 0.804
+0x810d0789 0.809
+0x1090394 0.821
+0x1490284 0.827
+0x3410aa4 0.83
+0x3410aa4 0.847
+0x20148a0 0.874
+0x820048a0 0.894
+0x820008a0 0.897
+0x2400c20 0.899
+0x82000681 0.906
+0x10182 0.921
+0x10182 0.926
+0x10986 0.935
+0x2000508 0.94
+0x4510 0.949
+0x510 0.953
+0x500 0.975
+0x81 0.987
+After optimizer- diff: 0x81 Accuracy: 0.987
+
+Estimates of attack accuracy:
+3 rounds:0.987
+4 rounds:0.983
+5 rounds:0.861
+6 rounds:0.846
+7 rounds:0.55
+Run  1 : 
+0xc738d373 0.528
+0xf71be1f7 0.533
+0xf71be5f7 0.548
+0x98646f2b 0.551
+0x9c646f2b 0.571
+0x9a6567bb 0.585
+0x9863764d 0.588
+0x9c67764d 0.591
+0x8b497780 0.664
+0xb497780 0.69
+0xb413782 0.704
+0x1411782 0.764
+0x1411382 0.791
+0x854d13a8 0.795
+0x85441f99 0.797
+0x84441fb9 0.805
+0x834d0638 0.808
+0x8145058a 0.839
+0x8144058a 0.852
+0x8144050a 0.862
+0x8144450a 0.87
+0x2454414 0.897
+0x454404 0.914
+0x2404084 0.925
+0x40008 0.946
+0x4000a 0.949
+0x10404 0.95
+0x10404 0.952
+0x4580 0.955
+0x404080 0.972
+0x404000 0.978
+0x80000082 0.981
+After optimizer- diff: 0x80000082 Accuracy: 0.981
+
+Estimates of attack accuracy:
+3 rounds:0.981
+4 rounds:0.971
+5 rounds:0.763
+6 rounds:0.815
+Run  2 : 
+0x25181c03 0.554
+0x25181c02 0.56
+0x11105da2 0.569
+0x91067d22 0.693
+0x91067d32 0.708
+0x95067d12 0.719
+0x95067d02 0.728
+0x93425d00 0.729
+0x82025d04 0.787
+0x2035d04 0.803
+0x2035904 0.808
+0x6035904 0.809
+0x6095900 0.906
+0x6091900 0.914
+0x6011912 0.927
+0x6041d1e 0.928
+0x50112 0.933
+0x50012 0.935
+0x1000a 0.938
+0x1001a 0.946
+0x12 0.959
+0x112 0.962
+0x80004080 0.963
+0x4080 0.984
+After optimizer- diff: 0x4080 Accuracy: 0.984
+
+Estimates of attack accuracy:
+3 rounds:0.984
+4 rounds:0.977
+5 rounds:0.773
+6 rounds:0.873
+Run  3 : 
+0x1dd53133 0.501
+0x1dd53113 0.502
+0x9dd53113 0.507
+0x95d53907 0.512
+0x91559907 0.514
+0xd1511b07 0.531
+0xd5511b07 0.542
+0xd5411b07 0.554
+0xd5401f07 0.594
+0xd5401f17 0.613
+0x808499bc 0.674
+0x808099bc 0.681
+0x818099bc 0.716
+0x818089b4 0.72
+0x818089a4 0.779
+0x818089a5 0.789
+0x81808925 0.81
+0x8100c081 0.848
+0x8100c481 0.856
+0x1008681 0.858
+0x8481 0.888
+0x404303 0.943
+0x80000002 0.978
+After optimizer- diff: 0x80000002 Accuracy: 0.978
+
+Estimates of attack accuracy:
+3 rounds:0.978
+4 rounds:0.984
+5 rounds:0.767
+6 rounds:0.798
+Run  4 : 
+0x20bea05d 0.524
+0x28bea05d 0.536
+0x638ec919 0.565
+0x638e8919 0.567
+0x238e8919 0.677
+0x214cc59d 0.707
+0x814e479d 0.771
+0x814e079d 0.801
+0x34c0e89 0.807
+0x3444e88 0.819
+0x3444f08 0.842
+0x3074504 0.852
+0x3060810 0.875
+0x2060a10 0.889
+0x2060214 0.894
+0x80400600 0.923
+0x80000600 0.934
+0x80000200 0.946
+0x200 0.965
+0x4100 0.972
+0x80000082 0.981
+After optimizer- diff: 0x80000082 Accuracy: 0.981
+
+Estimates of attack accuracy:
+3 rounds:0.981
+4 rounds:0.973
+5 rounds:0.763
+6 rounds:0.801
+Run  5 : 
+0xa5b787a0 0.527
+0x85969780 0.545
+0x85c61b00 0.695
+0x85c71b00 0.707
+0x85c71308 0.708
+0x85460616 0.767
+0x85460616 0.786
+0x85061616 0.799
+0x5061616 0.822
+0x406161e 0.841
+0x406161a 0.843
+0x2161a 0.859
+0x2070208 0.869
+0x205050c 0.926
+0x205010c 0.93
+0x205010e 0.938
+0x50106 0.946
+0x5010e 0.949
+0x100 0.971
+0x800 0.983
+After optimizer- diff: 0x800 Accuracy: 0.983
+
+Estimates of attack accuracy:
+3 rounds:0.983
+4 rounds:0.977
+5 rounds:0.923
+6 rounds:0.839
+7 rounds:0.605
+8 rounds:0.529
+Run  6 : 
+0x717cae63 0.551
+0x5160f623 0.565
+0x11607623 0.566
+0x51607623 0.567
+0xf140b64b 0.575
+0xd140b64b 0.592
+0xd140b44b 0.602
+0xd144a64b 0.637
+0x91448603 0.666
+0x81448603 0.724
+0x81448613 0.731
+0x81c48613 0.76
+0x81c40610 0.769
+0x81444612 0.855
+0x1444212 0.858
+0x1444282 0.868
+0x1404282 0.928
+0x1404480 0.946
+0x1400500 0.947
+0x404500 0.963
+0x4101 0.966
+0x4181 0.969
+0x404181 0.98
+0x400101 0.981
+0x80400183 0.99
+After optimizer- diff: 0x80400183 Accuracy: 0.99
+
+Estimates of attack accuracy:
+3 rounds:0.99
+4 rounds:0.973
+5 rounds:0.559
+6 rounds:0.815
+Run  7 : 
+0xe371a192 0.498
+0xe371a182 0.504
+0xe379a182 0.531
+0xa3d9e923 0.534
+0xef502d2b 0.536
+0xfa602d2b 0.571
+0xfa70052b 0.579
+0xfa30052b 0.592
+0x7020052b 0.603
+0x70200549 0.607
+0x70281549 0.621
+0x70281559 0.625
+0xe0089d5b 0.627
+0xa0089c1b 0.716
+0xa0089c13 0.738
+0xa0489c13 0.739
+0xa0489813 0.748
+0xa0488813 0.835
+0xa0488811 0.86
+0xa0488911 0.872
+0xa0488913 0.89
+0x408981 0.928
+0x408181 0.959
+0x8081 0.967
+0x81 0.983
+After optimizer- diff: 0x81 Accuracy: 0.983
+
+Estimates of attack accuracy:
+3 rounds:0.983
+4 rounds:0.979
+5 rounds:0.817
+6 rounds:0.849
+7 rounds:0.554
+Run  8 : 
+0x99241301 0.588
+0x99245303 0.609
+0x19045303 0.708
+0x9045303 0.71
+0x9045382 0.711
+0x11014b83 0.738
+0x1014983 0.87
+0x1014981 0.877
+0x1014f81 0.886
+0x1014f85 0.887
+0x81410b07 0.888
+0x404307 0.898
+0x404107 0.901
+0x414187 0.916
+0x410186 0.933
+0x410984 0.935
+0x2014804 0.942
+0x10d06 0.954
+0x2000002 0.961
+0x2000402 0.966
+0x402 0.983
+After optimizer- diff: 0x402 Accuracy: 0.983
+
+Estimates of attack accuracy:
+3 rounds:0.983
+4 rounds:0.961
+5 rounds:0.826
+6 rounds:0.877
+Run  9 : 
+0xa2f95669 0.526
+0x80f9548f 0.54
+0x987ff41e 0.544
+0x9a3ff41e 0.551
+0x1e3ff49e 0.553
+0x1e3ff19e 0.56
+0x1e7fd83e 0.571
+0x1427722e 0.579
+0x1427522e 0.586
+0xc2f526e 0.594
+0x8c0f522e 0.662
+0x8c0f520e 0.666
+0x9c0f520e 0.671
+0x9c07520e 0.674
+0x9c075206 0.714
+0x1c075206 0.716
+0x1c0f5206 0.718
+0x18065004 0.751
+0x1802501c 0.757
+0x98005808 0.771
+0x98007908 0.776
+0x98007d88 0.782
+0x18047488 0.818
+0x1405740a 0.876
+0x4082926 0.884
+0x40d4904 0.886
+0x4054d06 0.9
+0x54006 0.913
+0x45400c 0.915
+0x440c08 0.916
+0x40c1c 0.932
+0x40c14 0.95
+0x400182 0.963
+0x182 0.965
+0x102 0.966
+0x2 0.989
+After optimizer- diff: 0x2 Accuracy: 0.989
+
+Estimates of attack accuracy:
+3 rounds:0.989
+4 rounds:0.984
+5 rounds:0.877
+6 rounds:0.908
+7 rounds:0.561
+8 rounds:0.568
+9 rounds:0.529
+Run  10 : 
+0x806f1dca 0.576
+0x886f15ca 0.581
+0x886f15ce 0.622
+0xa2fa4 0.642
+0xa2f84 0.671
+0xa0f84 0.812
+0x20f84 0.847
+0x24b84 0.855
+0x24d06 0.859
+0x4d06 0.935
+0xc06 0.946
+0xc02 0.951
+0x10002 0.957
+0xd00 0.959
+0xc00 0.97
+0x800 0.975
+After optimizer- diff: 0x800 Accuracy: 0.975
+
+Estimates of attack accuracy:
+3 rounds:0.975
+4 rounds:0.976
+5 rounds:0.919
+6 rounds:0.858
+7 rounds:0.616
+8 rounds:0.549
+Run  11 : 
+0x634273a 0.52
+0x8634231a 0.53
+0x8ea5132b 0.577
+0x8ca51f2b 0.578
+0x8ca51f29 0.589
+0x9485d333 0.591
+0x948dd3b3 0.594
+0x848dd3b3 0.668
+0x848cd3b3 0.75
+0x81c4c292 0.756
+0x81444393 0.853
+0x81444391 0.855
+0x81440590 0.856
+0x81000590 0.917
+0x80004500 0.929
+0x80000500 0.932
+0x80000501 0.934
+0x80400201 0.942
+0x80400081 0.952
+0x80400181 0.971
+0x80000002 0.979
+0x80000002 0.98
+0x80004082 0.984
+0x404100 0.989
+After optimizer- diff: 0x404100 Accuracy: 0.989
+
+Estimates of attack accuracy:
+3 rounds:0.989
+4 rounds:0.974
+5 rounds:0.736
+6 rounds:0.833
+7 rounds:0.529
+8 rounds:0.529
+9 rounds:0.523
+Run  12 : 
+0x3db10f03 0.515
+0x3db18f13 0.521
+0x2d95b30b 0.531
+0x2f95b30b 0.537
+0x569f3a5f 0.543
+0x1693333a 0.562
+0x16137e2a 0.585
+0x16127e22 0.589
+0x36127e22 0.602
+0x36025622 0.614
+0x36025626 0.628
+0x26069636 0.719
+0x248e8330 0.728
+0x26821332 0.738
+0x26861312 0.74
+0x6860512 0.75
+0x2860112 0.77
+0x4911e 0.786
+0x911e 0.793
+0x4cc596 0.803
+0x4c4d94 0.847
+0x484d94 0.859
+0x485418 0.872
+0x85418 0.896
+0x2085c28 0.901
+0x5d12 0.902
+0x1d12 0.908
+0x81d12 0.909
+0x81d02 0.913
+0x14c14 0.914
+0x54414 0.936
+0x54d14 0.939
+0x4001804 0.944
+0x200041a 0.95
+0x4000a 0.952
+0xa 0.953
+0x2000002 0.966
+0x4000 0.975
+0x400101 0.983
+0x81 0.985
+After optimizer- diff: 0x81 Accuracy: 0.985
+
+Estimates of attack accuracy:
+3 rounds:0.985
+4 rounds:0.98
+5 rounds:0.841
+6 rounds:0.846
+Run  13 : 
+0x9aaf27f6 0.507
+0x9aaf27f6 0.511
+0x9aaf0674 0.519
+0x9aaf8674 0.551
+0x98af8674 0.559
+0x9ba78a76 0.562
+0x8ba78a76 0.57
+0x87e3ef6f 0.573
+0x86a88e6e 0.574
+0x9ea0a66e 0.575
+0x96e0866e 0.578
+0x96e0e66e 0.582
+0x94a5a67e 0.593
+0x14cd592c 0.6
+0x4cd592c 0.678
+0x4cd593c 0.703
+0xa5cc5d3a 0.707
+0x6455e89 0.754
+0x4451e89 0.767
+0x4411c89 0.772
+0x4411889 0.797
+0x5401889 0.811
+0x8444011b 0.812
+0x81080290 0.827
+0x800803a0 0.833
+0x804801a0 0.878
+0x804841a0 0.879
+0x804841a2 0.899
+0x804841a0 0.907
+0x804841a3 0.909
+0x804841a1 0.911
+0x80484981 0.914
+0x804801a1 0.925
+0x4801a0 0.928
+0x4801a2 0.929
+0x4001a2 0.941
+0x4041a2 0.947
+0x2040c1a0 0.955
+0x404180 0.983
+After optimizer- diff: 0x404180 Accuracy: 0.983
+
+Estimates of attack accuracy:
+3 rounds:0.983
+4 rounds:0.983
+5 rounds:0.727
+6 rounds:0.839
+Run  14 : 
+0xc7c393f4 0.56
+0xc74393f4 0.574
+0x460b99d1 0.578
+0x43088b53 0.58
+0x43088f53 0.581
+0xc30e0553 0.606
+0xb00c9052 0.617
+0x900c9052 0.625
+0xb04c9463 0.635
+0xb04c946b 0.638
+0xb048946b 0.641
+0xb0489cab 0.646
+0xb04834ab 0.662
+0xb00834a3 0.673
+0xb0000c23 0.682
+0xb0000c22 0.69
+0xb0080c92 0.709
+0xa0080c92 0.789
+0xa0480c12 0.801
+0x20480c12 0.829
+0x20480c32 0.834
+0x20480832 0.867
+0x4800b2 0.913
+0x4801a2 0.943
+0x20408102 0.948
+0x400982 0.959
+0x400182 0.969
+0x80404183 0.974
+0x400100 0.98
+0x400101 0.987
+After optimizer- diff: 0x400101 Accuracy: 0.987
+
+Estimates of attack accuracy:
+3 rounds:0.987
+4 rounds:0.984
+5 rounds:0.543
+6 rounds:0.738
+Run  15 : 
+0x13aa4357 0.526
+0x13aa0357 0.532
+0x13aa0317 0.563
+0x11a22707 0.572
+0x10a22707 0.582
+0x9d885783 0.586
+0x9d085783 0.66
+0x9d0a4783 0.666
+0x990a4783 0.684
+0x890a4783 0.703
+0x810a5f03 0.788
+0x850e1f07 0.805
+0x854c1707 0.815
+0x820d4425 0.832
+0x8502108a 0.833
+0x80040488 0.875
+0x80040c88 0.877
+0x80040c08 0.88
+0x82040588 0.885
+0x2404e87 0.894
+0x81000200 0.935
+0x2000106 0.941
+0x2010d16 0.943
+0x404900 0.959
+0x800080a3 0.96
+0x80000001 0.966
+0x80000003 0.974
+0x80000002 0.986
+After optimizer- diff: 0x80000002 Accuracy: 0.986
+
+Estimates of attack accuracy:
+3 rounds:0.986
+4 rounds:0.978
+5 rounds:0.781
+6 rounds:0.797
+Run  16 : 
+0x2463ee4d 0.529
+0xa463ee4d 0.541
+0xa663ec4d 0.551
+0x2843eccc 0.565
+0x8843e4c4 0.576
+0xa84ad4c4 0.587
+0x3a3df8f4 0.649
+0x3a3dfcf4 0.683
+0x3a3dfdf4 0.694
+0x2a35f594 0.698
+0x1834f8da 0.712
+0x183cf8d8 0.719
+0x380cd8da 0.738
+0x2034e5f8 0.751
+0x102464e8 0.768
+0x483410 0.815
+0x8483410 0.83
+0x8443410 0.841
+0x4043d16 0.845
+0x43d16 0.867
+0x43d16 0.879
+0xe040008 0.89
+0x6040008 0.913
+0x6041008 0.918
+0x201010a 0.924
+0x201000a 0.927
+0x200040a 0.953
+0x80022 0.957
+0x80 0.989
+After optimizer- diff: 0x80 Accuracy: 0.989
+
+Estimates of attack accuracy:
+3 rounds:0.989
+4 rounds:0.979
+5 rounds:0.89
+6 rounds:0.902
+7 rounds:0.573
+8 rounds:0.577
+Run  17 : 
+0xac260be6 0.531
+0xac260b67 0.553
+0xac268b67 0.559
+0xac268be7 0.561
+0x2e2681e2 0.566
+0x2a261be6 0.571
+0x3a601df6 0.656
+0x3a609d36 0.662
+0x3a649d36 0.665
+0x32749d36 0.668
+0x32748d36 0.678
+0x30742d36 0.682
+0x18742cb6 0.692
+0x1a442ca4 0.814
+0x18442ca4 0.816
+0x18442ca0 0.819
+0x18442ca2 0.822
+0x180c2caa 0.843
+0x180c0c22 0.873
+0x180c4c22 0.887
+0x85c2a 0.899
+0x1c28 0.904
+0x5c22 0.913
+0x4c22 0.924
+0x414c86 0.931
+0x414806 0.933
+0x414006 0.936
+0x10806 0.951
+0x802 0.974
+0x800 0.979
+0x400101 0.985
+After optimizer- diff: 0x400101 Accuracy: 0.985
+
+Estimates of attack accuracy:
+3 rounds:0.985
+4 rounds:0.986
+5 rounds:0.568
+6 rounds:0.745
+Run  18 : 
+0x6f87e40c 0.528
+0x6787e00c 0.529
+0x6f87c00c 0.531
+0x6f87c00e 0.538
+0xf87c00e 0.551
+0xe87c00a 0.571
+0xe87800a 0.582
+0x607800a 0.704
+0x687800a 0.709
+0x6878016 0.736
+0x64a5838 0.772
+0x64a5818 0.773
+0x64a1818 0.796
+0x647181a 0.81
+0x603101e 0.834
+0x6020016 0.843
+0x2090f32 0.851
+0x82000d12 0.857
+0x82400d12 0.86
+0x80400d12 0.882
+0x400d12 0.912
+0x400d02 0.918
+0x400d82 0.941
+0xc1a 0.944
+0x40c02 0.947
+0x2050506 0.949
+0x14104 0.954
+0x10504 0.955
+0x408 0.956
+0x20 0.966
+0x80004000 0.967
+0x180 0.972
+0x802 0.976
+After optimizer- diff: 0x802 Accuracy: 0.976
+
+Estimates of attack accuracy:
+3 rounds:0.976
+4 rounds:0.976
+5 rounds:0.807
+6 rounds:0.793
+7 rounds:0.53
+Run  19 : 
+0xe76a274f 0.55
+0x64468d5c 0.554
+0x604f8d5c 0.567
+0x91675933 0.571
+0x95675933 0.579
+0x95475933 0.693
+0x95435933 0.703
+0x8741103b 0.778
+0x8741103f 0.79
+0x8740103d 0.794
+0x8745551d 0.802
+0x82405e11 0.804
+0x84060c09 0.834
+0x82420997 0.846
+0x82400997 0.855
+0x82400987 0.865
+0x82400d87 0.882
+0x20d0112 0.901
+0x20c0826 0.903
+0x60c103e 0.909
+0x20d1136 0.916
+0x409183e 0.92
+0x409183c 0.923
+0x409103c 0.935
+0x40c113e 0.943
+0x4502 0.949
+0x4402 0.956
+0x4002 0.971
+After optimizer- diff: 0x4002 Accuracy: 0.971
+
+Estimates of attack accuracy:
+3 rounds:0.971
+4 rounds:0.971
+5 rounds:0.63
+6 rounds:0.827
+
+%run train_distinguisher.py simon 0x0000 0x0002 10 9 2 1024 2 19 2 17 -- words good 
+%run test_trained_model.py simon ./simon_nets/best_9_depth_2_diff_\(0,\ 2\)_data_train_524288_data_test_131072_epoch-04_val_acc-0.53.h5 2 17 9 10 no_random_default
+%run test_trained_model.py simon ./simon_nets/best_9_depth_2_diff_\(0,\ 2\)_data_train_524288_data_test_131072_epoch-04_val_acc-0.53.h5 2 17 9 10 random
+%run test_trained_model.py simon ./simon_nets/best_9_depth_2_diff_\(0,\ 2\)_data_train_524288_data_test_131072_epoch-04_val_acc-0.53.h5 2 17 9 10 no_random_default
+
+function ClickConnect(){
+    console.log("Working"); 
+    document.querySelector("colab-toolbar-button#connect").click() 
+}
+setInterval(ClickConnect,60000)
+function ClickConnect(){
+  console.log("Working"); 
+  document
+    .querySelector("#top-toolbar > colab-connect-button")
+    .shadowRoot
+    .querySelector("#connect")
+    .click()
+}
+
+setInterval(ClickConnect,60000)
+
+%run test_trained_model.py simon ./simon_nets/best_10_depth_2_diff_\(64,\ 16640\)_data_train_16777216_data_test_4194304_epoch-02_val_acc-0.51.h5 2 22 10 10 no_random_diff 0x4033 0x0030
+
+

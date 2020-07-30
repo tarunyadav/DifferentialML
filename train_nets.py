@@ -1,6 +1,10 @@
 import os
 import sys
 
+# import comet_ml in the top of your file
+#from comet_ml import Experiment
+# Add the following code anywhere in your machine learning file
+#experiment = Experiment(api_key="x8AcgAv6hHsfdtS6Zstmy91zX", project_name="differentialml", workspace="tarunyadav")
 
 import speck as sp
 import simon as si
@@ -18,6 +22,9 @@ from keras.optimizers import Adam
 from keras.layers import Dense, Conv1D, Input, Reshape, Permute, Add, Flatten, BatchNormalization, Activation
 from keras import backend as K
 from keras.regularizers import l2
+
+    
+
 
 bs = 5000;
 

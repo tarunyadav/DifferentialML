@@ -16,7 +16,7 @@ import sys
 from os import urandom 
 import os
 from tqdm.notebook import tqdm
-
+from random import randint
 # load model
 model = load_model(sys.argv[2]);
 file_name = os.path.basename(sys.argv[2]);
@@ -36,7 +36,7 @@ debug = False;
 if (sys.argv[-1] == "debug"):
   debug = True;
 distinguisher_counter = [];
-for test in tqdm(range(0,100)):
+for test in tqdm(range(0,50)):
   prediction_counter = [];
   for loop in range(1,int(sys.argv[3])+1):
         ####Print#######
@@ -71,8 +71,10 @@ for test in tqdm(range(0,100)):
           diff_default=(int(file_name.split('_')[7][1:-1].split(',')[0]),int(file_name.split('_')[7][1:-1].split(',')[1]),int(file_name.split('_')[7][1:-1].split(',')[2]),int(file_name.split('_')[7][1:-1].split(',')[3]))
           if (sys.argv[11] == "default_diff"):
               diff = diff_default;
-          else:
-              diff = (int(sys.argv[11],16),int(sys.argv[12],16),int(sys.argv[13],16),int(sys.argv[14],16));
+          elif (sys.argv[11] == "random_diff" and loop==1):
+              diff = (randint(0,(2**16)-1),randint(0,(2**16)-1),randint(0,(2**16)-1),randint(0,(2**16)-1));
+          elif (sys.argv[11] == "fix_diff"):
+              diff = (int(sys.argv[12],16),int(sys.argv[13],16),int(sys.argv[14],16),int(sys.argv[15],16));
         
           # output_Y = int(sys.argv[12]);
           # Y = np.frombuffer(urandom(n), dtype=np.uint8); 
@@ -80,8 +82,8 @@ for test in tqdm(range(0,100)):
           #   Y = (Y & 0);
           # elif (output_Y==1):
           #   Y = (Y & 1) | 1;
-        
-          keys = np.repeat(np.frombuffer(urandom(16),dtype=np.uint16).reshape(8,-1),n,axis=1);
+          if (loop==1):
+            keys = np.repeat(np.frombuffer(urandom(16),dtype=np.uint16).reshape(8,-1),n,axis=1);
         
           plain0_0 = np.frombuffer(urandom(2*n),dtype=np.uint16);
           plain0_1 = np.frombuffer(urandom(2*n),dtype=np.uint16);
@@ -111,10 +113,13 @@ for test in tqdm(range(0,100)):
           diff_default=(int(file_name.split('_')[7][1:-1].split(',')[0]),int(file_name.split('_')[7][1:-1].split(',')[1]))
           if (sys.argv[11] == "default_diff"):
               diff = diff_default;
-          else:
-              diff = (int(sys.argv[11],16),int(sys.argv[12],16));
-        
-          keys = np.repeat(np.frombuffer(urandom(8),dtype=np.uint16).reshape(4,-1),n,axis=1);
+          elif (sys.argv[11] == "random_diff"  and loop==1 ):
+              #diff = (int(sys.argv[11],16),int(sys.argv[12],16));
+              diff = (randint(0,(2**16)-1),randint(0,(2**16)-1));
+          elif (sys.argv[11] == "fix_diff"):
+              diff = (int(sys.argv[12],16),int(sys.argv[13],16));
+          if (loop==1):
+            keys = np.repeat(np.frombuffer(urandom(8),dtype=np.uint16).reshape(4,-1),n,axis=1);
         
           plain0_0 = np.frombuffer(urandom(2*n),dtype=np.uint16);
           plain0_1 = np.frombuffer(urandom(2*n),dtype=np.uint16);
@@ -133,10 +138,13 @@ for test in tqdm(range(0,100)):
           diff_default=(int(file_name.split('_')[7][1:-1].split(',')[0]),int(file_name.split('_')[7][1:-1].split(',')[1]))
           if (sys.argv[11] == "default_diff"):
               diff = diff_default;
-          else:
-              diff = (int(sys.argv[11],16),int(sys.argv[12],16));
-        
-          keys = np.repeat(np.frombuffer(urandom(8),dtype=np.uint16).reshape(4,-1),n,axis=1);
+          elif (sys.argv[11] == "random_diff"  and loop==1):
+              #diff = (int(sys.argv[11],16),int(sys.argv[12],16));
+              diff = (randint(0,(2**16)-1),randint(0,(2**16)-1));
+          elif (sys.argv[11] == "fix_diff"):
+              diff = (int(sys.argv[12],16),int(sys.argv[13],16)); 
+          if (loop==1):
+            keys = np.repeat(np.frombuffer(urandom(8),dtype=np.uint16).reshape(4,-1),n,axis=1);
         
           plain0_0 = np.frombuffer(urandom(2*n),dtype=np.uint16);
           plain0_1 = np.frombuffer(urandom(2*n),dtype=np.uint16);

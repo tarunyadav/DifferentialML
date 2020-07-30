@@ -26,7 +26,7 @@ for i in range(int(sys.argv[6])):
     elif (sys.argv[1]=="simon"):
         #X_eval, Y_eval = si.make_train_data(int(sys.argv[3])**int(sys.argv[4]), int((file_name.split('_',2))[1]));
         if (sys.argv[7]=="random"):
-            X_eval, Y_eval = si.make_train_data(int(sys.argv[3])**int(sys.argv[4]), int(sys.argv[5]),diff=(int(file_name.split('_')[5][1:-1].split(',')[0]),int(file_name.split('_')[5][1:-1].split(',')[1])));
+            X_eval, Y_eval = si.make_train_data(int(sys.argv[3])**int(sys.argv[4]), int(sys.argv[5]),diff=(int(file_name.split('_')[7][1:-1].split(',')[0]),int(file_name.split('_')[7][1:-1].split(',')[1])));
         elif (sys.argv[7]=="no_random_default"):
             X_eval, Y_eval = si.make_train_data_no_random(int(sys.argv[3])**int(sys.argv[4]), int(sys.argv[5]),diff=(int(file_name.split('_')[5][1:-1].split(',')[0]),int(file_name.split('_')[5][1:-1].split(',')[1])),output_Y=1);
             #X_eval, Y_eval = si.make_train_data_no_random(int(sys.argv[3])**int(sys.argv[4]), int(sys.argv[5]),diff=(int(245),int(433)));
